@@ -12,13 +12,13 @@ namespace BookManager.Models
         [Required]
         public string Titolo { get; set; }
 
-        List<string> Authors { get; set; }
+        public List<Author> Authors { get; set; }
 
         [Required]
         public string Publisher { get; set; }
 
         [Required]
-        public DateTime PublishDate { get; set; }
+        public string PublishDate { get; set; }
 
         [Required]
         public string Description { get; set; }

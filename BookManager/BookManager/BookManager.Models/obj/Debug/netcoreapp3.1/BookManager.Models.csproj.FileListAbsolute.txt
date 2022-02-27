@@ -1,0 +1,9 @@
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.Models\bin\Debug\netcoreapp3.1\BookManager.Models.deps.json
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.Models\bin\Debug\netcoreapp3.1\BookManager.Models.dll
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.Models\bin\Debug\netcoreapp3.1\BookManager.Models.pdb
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.csprojAssemblyReference.cache
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.AssemblyInfoInputs.cache
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.AssemblyInfo.cs
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.csproj.CoreCompileInputs.cache
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.dll
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.pdb

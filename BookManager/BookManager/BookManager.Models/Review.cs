@@ -20,6 +20,6 @@ namespace BookManager.Models
         public string ReviewCommentId { get; set; }
 
         [Required]
-        public DateTime ReviewPublishDate { get; set; }
+        public string ReviewPublishDate { get; set; }
     }
 }

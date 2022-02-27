@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace BookManager.Models
 {
@@ -11,7 +12,10 @@ namespace BookManager.Models
         public int Id { get; set; }
 
         [Required]
-        public string BookId { get; set; }
+        public int BookId { get; set; }
+
+        [JsonIgnore]
+        public Book Book { get; set; }
 
         [Required]
         public string AuthorName { get; set; }

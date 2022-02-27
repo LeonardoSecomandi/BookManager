@@ -18,5 +18,8 @@ namespace BookManager.Models
 
         public List<Comment> DiscussionComments { get; set; }
 
+        [Required]
+        public string DiscussionPublishDate { get; set; }
+
     }
 }

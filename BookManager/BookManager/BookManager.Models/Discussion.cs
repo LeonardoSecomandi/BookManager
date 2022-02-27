@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BookManager.Models
 {
-    class Discussion
+    public class Discussion
     {
         [Key,Required]
         public int Id { get; set; }

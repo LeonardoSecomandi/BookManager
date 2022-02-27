@@ -15,10 +15,8 @@ namespace BookManager.Models
 
        public List<Review> ItemReviewList { get; set; }
 
-
         
-        ///lista discussioni
-        ///
+       public List<Discussion> ItemDiscussionList { get; set; }
 
        
     }

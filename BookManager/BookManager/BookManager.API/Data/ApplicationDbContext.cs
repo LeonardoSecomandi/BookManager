@@ -83,6 +83,24 @@ namespace BookManager.API.Data
                 Indentifier = "IDENTIFIER DEMO 1",
                 Type = "Identifier Type1Demo2"
             });
+
+            modelBuilder.Entity<Comment>().HasData(new Comment()
+            {
+                Id = 1,
+                UserId = 1,
+                CommentContent = "Comment Demo 1 Comment Demo 1 Comment Demo 1 Comment Demo 1",
+                UpVotes = 0,
+                DownVotes = 0,
+            });
+            modelBuilder.Entity<Comment>().HasData(new Comment()
+            {
+                Id = 2,
+                UserId = 2,
+                AnswerCommentId = 1,
+                CommentContent = "Risposta Comment Demo1",
+                DownVotes = 0,
+                UpVotes = 1
+            });
         }
 
     }

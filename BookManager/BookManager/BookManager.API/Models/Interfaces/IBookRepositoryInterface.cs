@@ -11,5 +11,6 @@ namespace BookManager.API.Models.Interfaces
     public interface IBookRepositoryInterface
     {
         public Task<IEnumerable<BookResponseModel>> GetBooks();
+        public Task<BookResponseModel> GetBookById(int id);
     }
 }

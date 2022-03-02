@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\DTOS\Requests\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BookManager.Models\BookManager.Models.csproj" />
   </ItemGroup>
 

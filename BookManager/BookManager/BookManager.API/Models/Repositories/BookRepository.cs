@@ -42,5 +42,31 @@ namespace BookManager.API.Models.Repositories
             }
             return EleBookResponse;
         }
+
+        public async Task<BookResponseModel> GetBookById(int id)
+        {
+            var Book = await _context.Books.FirstOrDefaultAsync(b => b.Id == id);
+            if (Book is null)
+                return new BookResponseModel()
+                {
+                    Success = false,
+                    Message = "Nesssun libro associato a id " + id,
+                    Book = null,
+                    Errors = null
+                };
+
+            var Author = await _context.Authors.Where(a => a.BookId == Book.Id).ToListAsync();
+            var Category = await _context.Categories.Where(c => c.BookId == Book.Id).ToListAsync();
+            var Identifier = await _context.Identifiers.Where(i => i.BookId == Book.Id).ToListAsync();
+
+            return new BookResponseModel()
+            {
+                Success = true,
+                Message = "libro trovato",
+                Book = Book,
+                Errors = null
+            };
+
+        }
     }
 }

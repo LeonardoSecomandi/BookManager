@@ -153,8 +153,8 @@ namespace BookManager.API.Migrations
                     UserId = table.Column<int>(type: "INTEGER", nullable: false),
                     CommentContent = table.Column<string>(type: "TEXT", nullable: false),
                     UpVotes = table.Column<int>(type: "INTEGER", nullable: false),
-                    DownVotes = table.Column<string>(type: "TEXT", nullable: false),
-                    AnswerCommentId = table.Column<string>(type: "TEXT", nullable: true),
+                    DownVotes = table.Column<int>(type: "INTEGER", nullable: false),
+                    AnswerCommentId = table.Column<int>(type: "INTEGER", nullable: false),
                     CommentId = table.Column<int>(type: "INTEGER", nullable: true),
                     DiscussionId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
@@ -178,7 +178,17 @@ namespace BookManager.API.Migrations
             migrationBuilder.InsertData(
                 table: "Books",
                 columns: new[] { "Id", "ContentVersion", "Description", "ImageLink", "Language", "MaturityRating", "PageCount", "PublishDate", "Publisher", "Titolo" },
-                values: new object[] { 1, "COntent versione Demo", "Descrizione libro di prova", "Image Link Demo", "IT", "Maturity rating Demo", 320, "27/02/2022", "Publisher Demo", "Libro Demo1" });
+                values: new object[] { 1, "COntent versione Demo", "Descrizione libro di prova", "Image Link Demo", "IT", "Maturity rating Demo", 320, "02/03/2022", "Publisher Demo", "Libro Demo1" });
+
+            migrationBuilder.InsertData(
+                table: "Comments",
+                columns: new[] { "Id", "AnswerCommentId", "CommentContent", "CommentId", "DiscussionId", "DownVotes", "UpVotes", "UserId" },
+                values: new object[] { 1, 0, "Comment Demo 1 Comment Demo 1 Comment Demo 1 Comment Demo 1", null, null, 0, 0, 1 });
+
+            migrationBuilder.InsertData(
+                table: "Comments",
+                columns: new[] { "Id", "AnswerCommentId", "CommentContent", "CommentId", "DiscussionId", "DownVotes", "UpVotes", "UserId" },
+                values: new object[] { 2, 1, "Risposta Comment Demo1", null, null, 0, 1, 2 });
 
             migrationBuilder.InsertData(
                 table: "Authors",

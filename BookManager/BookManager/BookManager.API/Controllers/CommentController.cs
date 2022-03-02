@@ -1,4 +1,5 @@
-﻿using BookManager.API.Models.DTOS.Responses;
+﻿using BookManager.API.Models.DTOS.Requests;
+using BookManager.API.Models.DTOS.Responses;
 using BookManager.API.Models.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,42 +12,41 @@ namespace BookManager.API.Controllers
 {
     [ApiController]
     [Route("[Controller]/api")]
-    public class BookController:ControllerBase
+    public class CommentController : ControllerBase
     {
-        private readonly IBookRepositoryInterface _bookRepositoryService;
 
-        public BookController(IBookRepositoryInterface bookService)
+        private readonly ICommentInterface _commentInterface;
+        public CommentController(ICommentInterface commentinterface)
         {
-            this._bookRepositoryService = bookService;
+            this._commentInterface = commentinterface;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BookResponseModel>>> GetBooks()
+        public async Task<ActionResult<IEnumerable<CommentResponseModel>>> GetComments()
         {
             try
             {
-                var result = await _bookRepositoryService.GetBooks();
+                var result = await _commentInterface.GetComments();
                 return Ok(result);
             }
             catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Errore nel recupero dati dal database");
             }
-
         }
-        [HttpGet("book/{id:int}")]
-        public async Task<ActionResult<BookResponseModel>> GetBookById(int id)
+
+        [HttpPost("answer/post")]
+        public async Task<ActionResult<AddCommentResponse>> AddAnswerToComment(AddAnswerToCommentRequest req)
         {
             try
             {
-                var result = await _bookRepositoryService.GetBookById(id);
+                var result = await _commentInterface.AddAnswerToComment(req);
                 return Ok(result);
             }
             catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Errore nel recupero dati dal database");
             }
-            
         }
     }
 }

@@ -1,14 +1,16 @@
-﻿using System;
+﻿using BookManager.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BookManager.Models
+namespace BookManager.API.Models.DTOS.Requests
 {
-    public class Comment
+    public class AddAnswerToCommentRequest
     {
-        [Key,Required]
-        public int Id { get; set; }
+        [Required]
+        public int IdCommentAnswer { get; set; }
 
         [Required]
         public int UserId { get; set; }
@@ -21,8 +23,5 @@ namespace BookManager.Models
 
         [Required]
         public int DownVotes { get; set; }
-
-        public List<Comment> Answers { get; set; }
-        public int AnswerCommentId { get; set; }
     }
 }

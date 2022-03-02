@@ -105,7 +105,7 @@ namespace BookManager.API.Migrations
                             Language = "IT",
                             MaturityRating = "Maturity rating Demo",
                             PageCount = 320,
-                            PublishDate = "27/02/2022",
+                            PublishDate = "02/03/2022",
                             Publisher = "Publisher Demo",
                             Titolo = "Libro Demo1"
                         });
@@ -151,8 +151,8 @@ namespace BookManager.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("AnswerCommentId")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("AnswerCommentId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CommentContent")
                         .IsRequired()
@@ -164,9 +164,8 @@ namespace BookManager.API.Migrations
                     b.Property<int?>("DiscussionId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("DownVotes")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("DownVotes")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("UpVotes")
                         .HasColumnType("INTEGER");
@@ -181,6 +180,26 @@ namespace BookManager.API.Migrations
                     b.HasIndex("DiscussionId");
 
                     b.ToTable("Comments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AnswerCommentId = 0,
+                            CommentContent = "Comment Demo 1 Comment Demo 1 Comment Demo 1 Comment Demo 1",
+                            DownVotes = 0,
+                            UpVotes = 0,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AnswerCommentId = 1,
+                            CommentContent = "Risposta Comment Demo1",
+                            DownVotes = 0,
+                            UpVotes = 1,
+                            UserId = 2
+                        });
                 });
 
             modelBuilder.Entity("BookManager.Models.Discussion", b =>

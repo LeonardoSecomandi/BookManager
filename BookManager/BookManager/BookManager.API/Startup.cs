@@ -40,6 +40,7 @@ namespace BookManager.API
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("ApplicationDbContextConnectionString")));
             services.AddScoped<IBookRepositoryInterface, BookRepository>();
             services.AddScoped<ICommentInterface, CommentRepository>();
+            services.AddScoped<IidentifierInterface, IdentifierRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

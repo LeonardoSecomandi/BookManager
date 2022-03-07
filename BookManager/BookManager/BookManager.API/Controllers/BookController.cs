@@ -1,5 +1,7 @@
-﻿using BookManager.API.Models.DTOS.Responses;
+﻿using BookManager.API.Models.DTOS.Requests;
+using BookManager.API.Models.DTOS.Responses;
 using BookManager.API.Models.Interfaces;
+using BookManager.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -46,7 +48,6 @@ namespace BookManager.API.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Errore nel recupero dati dal database");
             }
-            
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using BookManager.API.Data;
+using BookManager.API.Models.DTOS.Requests;
 using BookManager.API.Models.DTOS.Responses;
 using BookManager.API.Models.Interfaces;
+using BookManager.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,7 +28,8 @@ namespace BookManager.API.Models.Repositories
                 var Author = await _context.Authors.Where(a => a.BookId == Book.Id).ToListAsync();
                 var Category = await _context.Categories.Where(c => c.BookId == Book.Id).ToListAsync();
                 var Identifier = await _context.Identifiers.Where(i => i.BookId == Book.Id).ToListAsync();
-
+                var Ratings = await _context.Ratings.Where(r => r.BookId == Book.Id).ToListAsync();
+                var Ratingaverage = Ratings.Select(x => x.RatingValue).Average();
 
                 EleBookResponse.Add(new BookResponseModel()
                 {
@@ -34,7 +37,8 @@ namespace BookManager.API.Models.Repositories
                     Message = "Lista Libri Ricevuta",
                     Errors = null,
                     Book = Book,
-                   
+                    RatingsAverage=Ratingaverage //non viene mappata da sola
+                    //RatingAverage=RatingAverage
                     //Author = Author,
                     //Categories = Category,        ///Non so perche ma li mette già dentro l'oggetto Book
                     //Identifiers = Identifier

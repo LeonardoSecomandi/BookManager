@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookManager.API.Models.DTOS.Requests;
 using BookManager.API.Models.DTOS.Responses;
 using BookManager.Models;
 

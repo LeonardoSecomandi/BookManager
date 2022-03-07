@@ -87,6 +87,9 @@ namespace BookManager.API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("RatingAverage")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Titolo")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -105,8 +108,9 @@ namespace BookManager.API.Migrations
                             Language = "IT",
                             MaturityRating = "Maturity rating Demo",
                             PageCount = 320,
-                            PublishDate = "02/03/2022",
+                            PublishDate = "07/03/2022",
                             Publisher = "Publisher Demo",
+                            RatingAverage = 0m,
                             Titolo = "Libro Demo1"
                         });
                 });
@@ -281,6 +285,57 @@ namespace BookManager.API.Migrations
                     b.ToTable("Items");
                 });
 
+            modelBuilder.Entity("BookManager.Models.Ratings", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("RatingDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("RatingValue")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("Ratings");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            BookId = 1,
+                            RatingDate = new DateTime(2022, 3, 7, 13, 28, 45, 581, DateTimeKind.Local).AddTicks(399),
+                            RatingValue = 7,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            id = 2,
+                            BookId = 1,
+                            RatingDate = new DateTime(2022, 3, 7, 13, 28, 45, 581, DateTimeKind.Local).AddTicks(1065),
+                            RatingValue = 6,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            id = 3,
+                            BookId = 1,
+                            RatingDate = new DateTime(2022, 3, 7, 13, 28, 45, 581, DateTimeKind.Local).AddTicks(1097),
+                            RatingValue = 8,
+                            UserId = 3
+                        });
+                });
+
             modelBuilder.Entity("BookManager.Models.Review", b =>
                 {
                     b.Property<int>("id")
@@ -357,6 +412,15 @@ namespace BookManager.API.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("BookManager.Models.Ratings", b =>
+                {
+                    b.HasOne("BookManager.Models.Book", null)
+                        .WithMany("Ratings")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("BookManager.Models.Review", b =>
                 {
                     b.HasOne("BookManager.Models.Item", null)
@@ -373,6 +437,8 @@ namespace BookManager.API.Migrations
                     b.Navigation("Categories");
 
                     b.Navigation("IndustryIdentifiers");
+
+                    b.Navigation("Ratings");
                 });
 
             modelBuilder.Entity("BookManager.Models.Comment", b =>

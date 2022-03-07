@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BookManager.API.Migrations
 {
@@ -20,7 +21,8 @@ namespace BookManager.API.Migrations
                     MaturityRating = table.Column<string>(type: "TEXT", nullable: false),
                     ContentVersion = table.Column<string>(type: "TEXT", nullable: false),
                     ImageLink = table.Column<string>(type: "TEXT", nullable: false),
-                    Language = table.Column<string>(type: "TEXT", nullable: false)
+                    Language = table.Column<string>(type: "TEXT", nullable: false),
+                    RatingAverage = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,6 +97,28 @@ namespace BookManager.API.Migrations
                     table.PrimaryKey("PK_Identifiers", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Identifiers_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Ratings",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    BookId = table.Column<int>(type: "INTEGER", nullable: false),
+                    RatingValue = table.Column<int>(type: "INTEGER", nullable: false),
+                    RatingDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ratings", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Ratings_Books_BookId",
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
@@ -177,8 +201,8 @@ namespace BookManager.API.Migrations
 
             migrationBuilder.InsertData(
                 table: "Books",
-                columns: new[] { "Id", "ContentVersion", "Description", "ImageLink", "Language", "MaturityRating", "PageCount", "PublishDate", "Publisher", "Titolo" },
-                values: new object[] { 1, "COntent versione Demo", "Descrizione libro di prova", "Image Link Demo", "IT", "Maturity rating Demo", 320, "02/03/2022", "Publisher Demo", "Libro Demo1" });
+                columns: new[] { "Id", "ContentVersion", "Description", "ImageLink", "Language", "MaturityRating", "PageCount", "PublishDate", "Publisher", "RatingAverage", "Titolo" },
+                values: new object[] { 1, "COntent versione Demo", "Descrizione libro di prova", "Image Link Demo", "IT", "Maturity rating Demo", 320, "07/03/2022", "Publisher Demo", 0m, "Libro Demo1" });
 
             migrationBuilder.InsertData(
                 table: "Comments",
@@ -220,6 +244,21 @@ namespace BookManager.API.Migrations
                 columns: new[] { "Id", "BookId", "Indentifier", "Type" },
                 values: new object[] { 2, 1, "IDENTIFIER DEMO 1", "Identifier Type1Demo2" });
 
+            migrationBuilder.InsertData(
+                table: "Ratings",
+                columns: new[] { "id", "BookId", "RatingDate", "RatingValue", "UserId" },
+                values: new object[] { 1, 1, new DateTime(2022, 3, 7, 13, 28, 45, 581, DateTimeKind.Local).AddTicks(399), 7, 1 });
+
+            migrationBuilder.InsertData(
+                table: "Ratings",
+                columns: new[] { "id", "BookId", "RatingDate", "RatingValue", "UserId" },
+                values: new object[] { 2, 1, new DateTime(2022, 3, 7, 13, 28, 45, 581, DateTimeKind.Local).AddTicks(1065), 6, 2 });
+
+            migrationBuilder.InsertData(
+                table: "Ratings",
+                columns: new[] { "id", "BookId", "RatingDate", "RatingValue", "UserId" },
+                values: new object[] { 3, 1, new DateTime(2022, 3, 7, 13, 28, 45, 581, DateTimeKind.Local).AddTicks(1097), 8, 3 });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Authors_BookId",
                 table: "Authors",
@@ -251,6 +290,11 @@ namespace BookManager.API.Migrations
                 column: "BookId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Ratings_BookId",
+                table: "Ratings",
+                column: "BookId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Reviews_ItemId",
                 table: "Reviews",
                 column: "ItemId");
@@ -269,6 +313,9 @@ namespace BookManager.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "Identifiers");
+
+            migrationBuilder.DropTable(
+                name: "Ratings");
 
             migrationBuilder.DropTable(
                 name: "Reviews");

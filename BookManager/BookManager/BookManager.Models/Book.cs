@@ -1,12 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json.Serialization;
 
 namespace BookManager.Models
 {
     public class Book
     {
-        [Key,Required]
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -41,6 +43,11 @@ namespace BookManager.Models
 
         [Required]
         public string Language { get; set; }
+
+        public List<Ratings> Ratings { get; set; }
+
+        [JsonIgnore]
+        public double RatingAverage { get; set; }
 
     }
 }

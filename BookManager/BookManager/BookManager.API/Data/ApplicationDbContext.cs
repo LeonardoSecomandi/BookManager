@@ -19,10 +19,12 @@ namespace BookManager.API.Data
         public DbSet<Item> Items { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Categories> Categories { get; set; }
+        public DbSet<Ratings> Ratings { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Discussion> Discussions { get; set; }
         public DbSet<Identifiers> Identifiers { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -100,6 +102,31 @@ namespace BookManager.API.Data
                 CommentContent = "Risposta Comment Demo1",
                 DownVotes = 0,
                 UpVotes = 1
+            });
+
+            modelBuilder.Entity<Ratings>().HasData(new Ratings()
+            {
+                id=1,
+                BookId = 1,
+                RatingValue = 7,
+                RatingDate = DateTime.Now,
+                UserId = 1
+            });
+            modelBuilder.Entity<Ratings>().HasData(new Ratings()
+            {
+                id=2,
+                BookId = 1,
+                RatingValue = 6,
+                RatingDate = DateTime.Now,
+                UserId = 2
+            });
+            modelBuilder.Entity<Ratings>().HasData(new Ratings()
+            {
+                id=3,
+                BookId = 1,
+                RatingValue = 8,
+                RatingDate = DateTime.Now,
+                UserId = 3
             });
         }
 

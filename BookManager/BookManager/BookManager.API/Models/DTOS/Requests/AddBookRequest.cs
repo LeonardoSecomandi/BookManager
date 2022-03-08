@@ -11,15 +11,5 @@ namespace BookManager.API.Models.DTOS.Requests
     {
         [Required]
         public Book Book { get; set; }
-
-        [Required]
-        public List<Identifiers> Identifiers { get; set; }
-
-        [Required]
-        public List<Author> Author { get; set; }
-
-        [Required]
-        public List<Categories> Categories { get;set; }
-
     }
 }

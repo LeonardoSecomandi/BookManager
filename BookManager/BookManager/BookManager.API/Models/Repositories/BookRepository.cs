@@ -72,5 +72,28 @@ namespace BookManager.API.Models.Repositories
             };
 
         }
+
+        public async Task<AddBookResponse> AddBook(AddBookRequest req)
+        {
+            var result = await _context.AddAsync(req.Book);
+            await _context.SaveChangesAsync();
+            if (result.Entity is not null)
+            {
+                return new AddBookResponse()
+                {
+                    Success = true,
+                    Message = "Libro aggiunto",
+                    Errors = null,
+                    AddedBook = result.Entity
+                };
+            }
+            return new AddBookResponse()
+            {
+                Success = true,
+                Message = "errore nell'aggiunta del libro",
+                Errors = null,
+                AddedBook = null
+            };
+        }
     }
 }

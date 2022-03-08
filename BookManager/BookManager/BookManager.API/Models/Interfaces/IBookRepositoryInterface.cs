@@ -13,5 +13,6 @@ namespace BookManager.API.Models.Interfaces
     {
         public Task<IEnumerable<BookResponseModel>> GetBooks();
         public Task<BookResponseModel> GetBookById(int id);
+        public Task<AddBookResponse> AddBook(AddBookRequest req);
     }
 }

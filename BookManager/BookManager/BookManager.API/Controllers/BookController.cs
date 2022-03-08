@@ -49,5 +49,19 @@ namespace BookManager.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Errore nel recupero dati dal database");
             }
         }
+
+        [HttpPost]
+        public async Task<ActionResult<AddBookResponse>> AddBook(AddBookRequest req)
+        {
+            try
+            {
+                var result = await _bookRepositoryService.AddBook(req);
+                return result;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Errore nel recupero dati dal database");
+            }
+        }
     }
 }

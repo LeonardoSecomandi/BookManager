@@ -8,24 +8,27 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\leose\\.nuget\\packages\\": {},
+    "C:\\Users\\secomandi.17131\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
+      "projectUniqueName": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
       "projectName": "BookManager.Models",
-      "projectPath": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
-      "packagesPath": "C:\\Users\\leose\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\obj\\",
+      "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
+      "packagesPath": "C:\\Users\\secomandi.17131\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\leose\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\secomandi.17131\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -36,7 +39,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -48,23 +50,11 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
-        "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        "warn": true
       }
     }
   }

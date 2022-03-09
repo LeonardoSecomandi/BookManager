@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookManager.API.Data;
 
+
 namespace BookManager.API.Models.Repositories
 {
     public class ExtractBookFromGoogleApi
@@ -16,7 +17,6 @@ namespace BookManager.API.Models.Repositories
         
         public void ExtractBook(string Link)
         {
-
         }
     }
 }

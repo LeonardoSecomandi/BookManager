@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Abd2lg9BcV1uFBAsPjzBkyZ5vfsqxA0I8zane6JUGsaH/Yvocqyk/zhzSbVmI4SzkmZDvscjmrZ0css2u7fO0g==",
+  "dgSpecHash": "Pe4Z+6ZxKa+/UDvmkL930UkyJxNe5Qc/OaARMMG6D5V4APxV6yRkYN8luf2tS4208QmWmx9kVPqRazM+5dBwqg==",
   "success": true,
   "projectFilePath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.API\\BookManager.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\secomandi.17131\\.nuget\\packages\\htmlagilitypack\\1.11.42\\htmlagilitypack.1.11.42.nupkg.sha512",
     "C:\\Users\\secomandi.17131\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\secomandi.17131\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\secomandi.17131\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.0\\microsoft.data.sqlite.core.5.0.0.nupkg.sha512",

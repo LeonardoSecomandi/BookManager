@@ -12,7 +12,7 @@ using BookManager.Models;
 
 namespace BookManager.API.Models.Repositories
 {
-    public class ExtractBookFromGoogleApi
+    public class ExtractBookFromGoogleApi : IExtractBookFromGoogleApi
     {
         private readonly ApplicationDbContext _context;
         private readonly IidentifierInterface _iidentifierInterface;
@@ -29,12 +29,11 @@ namespace BookManager.API.Models.Repositories
         public async Task<ExtractBookResponse> ExtractBooksFromLink(string Link)
         {
             string finalHtml = default;
-            var link = Console.ReadLine().ToString();
             using (WebClient client = new WebClient())
             {
                 client.Encoding = System.Text.Encoding.UTF8;
                 var doc = new HtmlAgilityPack.HtmlDocument();
-                doc.LoadHtml(client.DownloadString(link));
+                doc.LoadHtml(client.DownloadString(Link));
                 foreach (var href in doc.DocumentNode.Descendants("a").Select(x => x.Attributes["href"]))
                 {
                     if (href == null) continue;
@@ -49,20 +48,66 @@ namespace BookManager.API.Models.Repositories
             Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(finalHtml);
             foreach(Item item in myDeserializedClass.items)
             {
-                var newVolume=new Book()
+                var newVolume = new Book()
                 {
-                    Titolo=item.volumeInfo.title,
-                    ContentVersion=item.volumeInfo.contentVersion,
-                    PageCount=item.volumeInfo.pageCount,
-                    Description=item.volumeInfo.description,
-                    ImageLink=item.volumeInfo.imageLinks.thumbnail,
-                    Language=item.volumeInfo.language,
-                    MaturityRating=item.volumeInfo.maturityRating,
-                    PublishDate= DateTime.Parse(item.volumeInfo.publishedDate.ToString()).ToShortDateString(),
-                    Publisher=item.volumeInfo.publisher,
+                    Titolo = item.volumeInfo.title,
+                    ContentVersion = item.volumeInfo.contentVersion,
+                    PageCount = item.volumeInfo.pageCount,
+                    Description = "description",
+                    ImageLink = item.volumeInfo.imageLinks.thumbnail,
+                    Language = item.volumeInfo.language,
+                    MaturityRating = item.volumeInfo.maturityRating,
+                    PublishDate = "12/12/2020",
+                    Publisher = "publisher",
                     ////////
+                };
+                var NewIdentifier = new Identifiers();
+                var newAuthor = new Author();
+                var newCat = new Categories();
+                foreach (var identifier in item.volumeInfo.industryIdentifiers)
+                {
+                    NewIdentifier = new Identifiers()
+                    {
+                        BookId = newVolume.Id,
+                        Indentifier = identifier.identifier,
+                        Type=identifier.type
+                     };
                 }
+                foreach(var author in item.volumeInfo.authors)
+                {
+                    newAuthor = new Author()
+                    {
+                        BookId = newVolume.Id,
+                        AuthorName = author,
+                    };
+                }
+                foreach(var category in item.volumeInfo.categories)
+                {
+                    newCat = new Categories()
+                    {
+                        BookId = newVolume.Id,
+                        CategoryName = category,
+                    };
+                }
+                await _context.AddAsync(newVolume);
+                await _context.AddAsync(NewIdentifier);
+                await _context.AddAsync(newAuthor);
+                await _context.AddAsync(newCat);
+                await _context.SaveChangesAsync();
+
+
+                List<string> ExtractedTitleBooks = new List<string>();
+                ExtractedTitleBooks = myDeserializedClass.items.Select(x => x.volumeInfo.title).ToList();
+                return new ExtractBookResponse()
+                {
+                    Succes = true,
+                    ExtractedCount = myDeserializedClass.items.Count,
+                    Message = "Libri estratti",
+                    TitlesOfExtractedBooks = ExtractedTitleBooks
+                };
+
             }
+            return null;
 
         }
         public class ExtractBookResponse

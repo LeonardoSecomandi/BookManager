@@ -1,6 +1,7 @@
 ﻿using BookManager.API.Models.DTOS.Requests;
 using BookManager.API.Models.DTOS.Responses;
 using BookManager.API.Models.Interfaces;
+using BookManager.API.Models.Repositories;
 using BookManager.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static BookManager.API.Models.Repositories.ExtractBookFromGoogleApi;
 
 namespace BookManager.API.Controllers
 {
@@ -17,7 +19,8 @@ namespace BookManager.API.Controllers
     {
         private readonly IBookRepositoryInterface _bookRepositoryService;
 
-        public BookController(IBookRepositoryInterface bookService)
+        public BookController(IBookRepositoryInterface bookService,
+            IExtractBookFromGoogleApi bookFromGoogleApi)
         {
             this._bookRepositoryService = bookService;
         }

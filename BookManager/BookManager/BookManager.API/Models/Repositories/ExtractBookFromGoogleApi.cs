@@ -93,22 +93,17 @@ namespace BookManager.API.Models.Repositories
                 await _context.AddAsync(NewIdentifier);
                 await _context.AddAsync(newAuthor);
                 await _context.AddAsync(newCat);
-                await _context.SaveChangesAsync();
-
-
-                List<string> ExtractedTitleBooks = new List<string>();
-                ExtractedTitleBooks = myDeserializedClass.items.Select(x => x.volumeInfo.title).ToList();
-                return new ExtractBookResponse()
-                {
-                    Succes = true,
-                    ExtractedCount = myDeserializedClass.items.Count,
-                    Message = "Libri estratti",
-                    TitlesOfExtractedBooks = ExtractedTitleBooks
-                };
-
             }
-            return null;
-
+            await _context.SaveChangesAsync();
+            List<string> ExtractedTitleBooks = new List<string>();
+            ExtractedTitleBooks = myDeserializedClass.items.Select(x => x.volumeInfo.title).ToList();
+            return new ExtractBookResponse()
+            {
+                Succes = true,
+                ExtractedCount = myDeserializedClass.items.Count,
+                Message = "Libri estratti",
+                TitlesOfExtractedBooks = ExtractedTitleBooks
+            };
         }
         public class ExtractBookResponse
         {

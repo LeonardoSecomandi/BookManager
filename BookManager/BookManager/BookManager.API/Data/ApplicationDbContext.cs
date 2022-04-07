@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookManager.Models;
 
+
 namespace BookManager.API.Data
 {
     public class ApplicationDbContext : DbContext
@@ -29,7 +30,6 @@ namespace BookManager.API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Book>().HasData(new Book()
             {
                 Id = 1,
@@ -128,6 +128,8 @@ namespace BookManager.API.Data
                 RatingDate = DateTime.Now,
                 UserId = 3
             });
+
+            
         }
 
     }

@@ -27,7 +27,7 @@ namespace BookManager.API.Controllers
                 var result = await _extractBookFromGoogleApi.ExtractBooksFromLink(Link);
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Errore nel recupero dati dal database");
             }

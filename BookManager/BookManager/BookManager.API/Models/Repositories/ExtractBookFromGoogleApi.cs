@@ -61,6 +61,8 @@ namespace BookManager.API.Models.Repositories
                     Publisher = "publisher",
                     ////////
                 };
+                await _context.Books.AddAsync(newVolume);
+                await _context.SaveChangesAsync();
                 var NewIdentifier = new Identifiers();
                 var newAuthor = new Author();
                 var newCat = new Categories();
@@ -72,6 +74,8 @@ namespace BookManager.API.Models.Repositories
                         Indentifier = identifier.identifier,
                         Type=identifier.type
                      };
+                    await _context.AddAsync(NewIdentifier);
+                    await _context.SaveChangesAsync();
                 }
                 foreach(var author in item.volumeInfo.authors)
                 {
@@ -80,6 +84,8 @@ namespace BookManager.API.Models.Repositories
                         BookId = newVolume.Id,
                         AuthorName = author,
                     };
+                    await _context.AddAsync(newAuthor);
+                    await _context.SaveChangesAsync();
                 }
                 foreach(var category in item.volumeInfo.categories)
                 {
@@ -88,13 +94,12 @@ namespace BookManager.API.Models.Repositories
                         BookId = newVolume.Id,
                         CategoryName = category,
                     };
+                    await _context.AddAsync(newCat);
+                    await _context.SaveChangesAsync();
                 }
-                await _context.AddAsync(newVolume);
-                await _context.AddAsync(NewIdentifier);
-                await _context.AddAsync(newAuthor);
-                await _context.AddAsync(newCat);
+              
             }
-            await _context.SaveChangesAsync();
+            
             List<string> ExtractedTitleBooks = new List<string>();
             ExtractedTitleBooks = myDeserializedClass.items.Select(x => x.volumeInfo.title).ToList();
             return new ExtractBookResponse()

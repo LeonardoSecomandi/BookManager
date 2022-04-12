@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "cYC+r+jYvziMD/QbT3eZ3qhDLeD1Ohs1AnpyzR0tvfgKPWs3eDwJC9hkK+pexf8+V+6cWUF0NLhjHjhaJxRv7A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.WEB\\BookManager.WEB.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\secomandi.17131\\.nuget\\packages\\microsoft.aspnetcore.blazor.httpclient\\3.2.0-preview3.20168.3\\microsoft.aspnetcore.blazor.httpclient.3.2.0-preview3.20168.3.nupkg.sha512",
+    "C:\\Users\\secomandi.17131\\.nuget\\packages\\system.text.json\\4.7.1\\system.text.json.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

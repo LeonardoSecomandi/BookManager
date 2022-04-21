@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.Models", "BookM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.API", "BookManager.API\BookManager.API.csproj", "{E9CDE3D8-87F6-49DF-9F25-880D6C129A2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManager.WEB", "BookManager.WEB\BookManager.WEB.csproj", "{87377E8E-4E9D-4A2A-91CF-4C1E0323153E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.WEB", "BookManager.WEB\BookManager.WEB.csproj", "{87377E8E-4E9D-4A2A-91CF-4C1E0323153E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

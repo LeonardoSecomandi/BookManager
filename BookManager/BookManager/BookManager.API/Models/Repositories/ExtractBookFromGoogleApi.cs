@@ -17,13 +17,16 @@ namespace BookManager.API.Models.Repositories
         private readonly ApplicationDbContext _context;
         private readonly IidentifierInterface _iidentifierInterface;
         private readonly IBookRepositoryInterface _bookRepositoryInterface;
+        private readonly IItemInterface _itemInterface;
         public ExtractBookFromGoogleApi(ApplicationDbContext context,
             IidentifierInterface _iidentifierInterface,
-            IBookRepositoryInterface books)
+            IBookRepositoryInterface books,
+            IItemInterface itemInterface)
         {
             this._context = context;
             this._iidentifierInterface = _iidentifierInterface;
             this._bookRepositoryInterface = books;
+            this._itemInterface = itemInterface;
         }
         
         public async Task<ExtractBookResponse> ExtractBooksFromLink(string Link)
@@ -97,7 +100,12 @@ namespace BookManager.API.Models.Repositories
                     await _context.AddAsync(newCat);
                     await _context.SaveChangesAsync();
                 }
-              
+                await _itemInterface.AddItem(new BookManager.Models.Item()
+                {
+                    BookId = newVolume.Id,
+                    ItemDiscussionList = null,
+                    ItemReviewList = null
+                });
             }
             
             List<string> ExtractedTitleBooks = new List<string>();

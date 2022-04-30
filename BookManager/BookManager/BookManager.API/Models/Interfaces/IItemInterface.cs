@@ -7,8 +7,9 @@ using BookManager.Models;
 
 namespace BookManager.API.Models.Interfaces
 {
-    interface IItemInterface
+    public interface IItemInterface
     {
         public Task<IEnumerable<ItemResponse>> GetItems();
+        public Task<BookManager.Models.Item> AddItem(BookManager.Models.Item item);
     }
 }

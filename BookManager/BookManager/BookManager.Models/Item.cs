@@ -11,7 +11,7 @@ namespace BookManager.Models
         public int Id { get; set; }
 
         [Required]
-        public string BookId { get; set; }
+        public int BookId { get; set; }
 
        public List<Review> ItemReviewList { get; set; }
 

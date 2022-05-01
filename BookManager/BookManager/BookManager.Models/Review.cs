@@ -7,7 +7,7 @@ namespace BookManager.Models
 {
     public class Review
     {
-        [Key,Required]
+        [Key]
         public int id { get; set; }
 
         [Required]
@@ -17,9 +17,10 @@ namespace BookManager.Models
         public int ReviewStars { get; set; }
 
         [Required]
-        public string ReviewCommentId { get; set; }
+        public string ReviewContent { get; set; }
 
         [Required]
-        public string ReviewPublishDate { get; set; }
+        public DateTime ReviewPublishDate { get; set; }
+
     }
 }

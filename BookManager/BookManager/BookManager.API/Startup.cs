@@ -44,6 +44,7 @@ namespace BookManager.API
             services.AddScoped<IAuthorInterface, AuthorRepository>();
             services.AddScoped<IExtractBookFromGoogleApi, ExtractBookFromGoogleApi>();
             services.AddScoped<IItemInterface, ItemRepository>();
+            services.AddScoped<IReviewsInterface, ReviewRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

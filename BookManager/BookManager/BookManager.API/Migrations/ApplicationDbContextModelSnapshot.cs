@@ -87,8 +87,8 @@ namespace BookManager.API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("RatingAverage")
-                        .HasColumnType("TEXT");
+                    b.Property<double>("RatingAverage")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Titolo")
                         .IsRequired()
@@ -108,9 +108,9 @@ namespace BookManager.API.Migrations
                             Language = "IT",
                             MaturityRating = "Maturity rating Demo",
                             PageCount = 320,
-                            PublishDate = "07/03/2022",
+                            PublishDate = "01/05/2022",
                             Publisher = "Publisher Demo",
-                            RatingAverage = 0m,
+                            RatingAverage = 0.0,
                             Titolo = "Libro Demo1"
                         });
                 });
@@ -276,9 +276,8 @@ namespace BookManager.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("BookId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("BookId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -314,7 +313,7 @@ namespace BookManager.API.Migrations
                         {
                             id = 1,
                             BookId = 1,
-                            RatingDate = new DateTime(2022, 3, 7, 13, 28, 45, 581, DateTimeKind.Local).AddTicks(399),
+                            RatingDate = new DateTime(2022, 5, 1, 19, 30, 12, 503, DateTimeKind.Local).AddTicks(4505),
                             RatingValue = 7,
                             UserId = 1
                         },
@@ -322,7 +321,7 @@ namespace BookManager.API.Migrations
                         {
                             id = 2,
                             BookId = 1,
-                            RatingDate = new DateTime(2022, 3, 7, 13, 28, 45, 581, DateTimeKind.Local).AddTicks(1065),
+                            RatingDate = new DateTime(2022, 5, 1, 19, 30, 12, 503, DateTimeKind.Local).AddTicks(5254),
                             RatingValue = 6,
                             UserId = 2
                         },
@@ -330,7 +329,7 @@ namespace BookManager.API.Migrations
                         {
                             id = 3,
                             BookId = 1,
-                            RatingDate = new DateTime(2022, 3, 7, 13, 28, 45, 581, DateTimeKind.Local).AddTicks(1097),
+                            RatingDate = new DateTime(2022, 5, 1, 19, 30, 12, 503, DateTimeKind.Local).AddTicks(5290),
                             RatingValue = 8,
                             UserId = 3
                         });
@@ -345,12 +344,11 @@ namespace BookManager.API.Migrations
                     b.Property<int>("ItemId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ReviewCommentId")
+                    b.Property<string>("ReviewContent")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ReviewPublishDate")
-                        .IsRequired()
+                    b.Property<DateTime>("ReviewPublishDate")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ReviewStars")

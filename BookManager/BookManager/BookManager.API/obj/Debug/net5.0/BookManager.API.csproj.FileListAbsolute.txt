@@ -115,3 +115,6 @@ C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BookManager\Bo
 C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BookManager\BookManager.API\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BookManager\BookManager.API\bin\Debug\net5.0\libman.json
 C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BookManager\BookManager.API\bin\Debug\net5.0\HtmlAgilityPack.dll
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.API\bin\Debug\net5.0\libman.json
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.API\bin\Debug\net5.0\HtmlAgilityPack.dll
+D:\GitHub\repository1\BookManager\BookManager\BookManager\BookManager.API\bin\Debug\net5.0\Newtonsoft.Json.dll

@@ -22,5 +22,6 @@ namespace BookManager.Models
         [Required]
         public DateTime ReviewPublishDate { get; set; }
 
+        public Ratings Rating { get; set; }
     }
 }

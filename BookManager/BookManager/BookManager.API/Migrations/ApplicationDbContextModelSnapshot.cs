@@ -108,7 +108,7 @@ namespace BookManager.API.Migrations
                             Language = "IT",
                             MaturityRating = "Maturity rating Demo",
                             PageCount = 320,
-                            PublishDate = "01/05/2022",
+                            PublishDate = "02/05/2022",
                             Publisher = "Publisher Demo",
                             RatingAverage = 0.0,
                             Titolo = "Libro Demo1"
@@ -313,7 +313,7 @@ namespace BookManager.API.Migrations
                         {
                             id = 1,
                             BookId = 1,
-                            RatingDate = new DateTime(2022, 5, 1, 19, 30, 12, 503, DateTimeKind.Local).AddTicks(4505),
+                            RatingDate = new DateTime(2022, 5, 2, 14, 0, 40, 609, DateTimeKind.Local).AddTicks(3342),
                             RatingValue = 7,
                             UserId = 1
                         },
@@ -321,7 +321,7 @@ namespace BookManager.API.Migrations
                         {
                             id = 2,
                             BookId = 1,
-                            RatingDate = new DateTime(2022, 5, 1, 19, 30, 12, 503, DateTimeKind.Local).AddTicks(5254),
+                            RatingDate = new DateTime(2022, 5, 2, 14, 0, 40, 609, DateTimeKind.Local).AddTicks(4408),
                             RatingValue = 6,
                             UserId = 2
                         },
@@ -329,7 +329,7 @@ namespace BookManager.API.Migrations
                         {
                             id = 3,
                             BookId = 1,
-                            RatingDate = new DateTime(2022, 5, 1, 19, 30, 12, 503, DateTimeKind.Local).AddTicks(5290),
+                            RatingDate = new DateTime(2022, 5, 2, 14, 0, 40, 609, DateTimeKind.Local).AddTicks(4442),
                             RatingValue = 8,
                             UserId = 3
                         });
@@ -342,6 +342,9 @@ namespace BookManager.API.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ItemId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Ratingid")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ReviewContent")
@@ -357,6 +360,8 @@ namespace BookManager.API.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("ItemId");
+
+                    b.HasIndex("Ratingid");
 
                     b.ToTable("Reviews");
                 });
@@ -426,6 +431,12 @@ namespace BookManager.API.Migrations
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("BookManager.Models.Ratings", "Rating")
+                        .WithMany()
+                        .HasForeignKey("Ratingid");
+
+                    b.Navigation("Rating");
                 });
 
             modelBuilder.Entity("BookManager.Models.Book", b =>

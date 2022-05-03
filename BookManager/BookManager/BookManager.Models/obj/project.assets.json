@@ -9,26 +9,23 @@
   },
   "packageFolders": {
     "C:\\Users\\secomandi.17131\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
+      "projectUniqueName": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
       "projectName": "BookManager.Models",
-      "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
+      "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
       "packagesPath": "C:\\Users\\secomandi.17131\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager.Models\\obj\\",
+      "outputPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\secomandi.17131\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

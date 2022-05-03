@@ -31,6 +31,7 @@ namespace BookManager.API.Models.Repositories
         
         public async Task<ExtractBookResponse> ExtractBooksFromLink(string Link)
         {
+            Link = $"https://www.googleapis.com/books/v1/volumes?q={Link}";
             string finalHtml = default;
             using (WebClient client = new WebClient())
             {

@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj": {}
+    "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj": {
+    "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj",
+        "projectUniqueName": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj",
         "projectName": "BlazorApp.WEB",
-        "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj",
+        "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj",
         "packagesPath": "C:\\Users\\secomandi.17131\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BlazorApp.WEB\\obj\\",
+        "outputPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BlazorApp.WEB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\secomandi.17131\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -32,7 +30,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj": {
+                "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -45,6 +47,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Blazor.HttpClient": {
+              "target": "Package",
+              "version": "[3.2.0-preview3.20168.3, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.4, )"
@@ -80,6 +86,63 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
+        "projectName": "BookManager.Models",
+        "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
+        "packagesPath": "C:\\Users\\secomandi.17131\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\secomandi.17131\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

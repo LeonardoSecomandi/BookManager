@@ -1,0 +1,16 @@
+﻿@using BookManager.WEB.Models.DTOS.Responses
+
+<div class="card" style="width: 18rem; margin-left:1rem">
+    <img src="@Item.Book.ImageLink" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Item.Book.Titolo</h5>
+        <p class="card-text">@Item.Book.Description</p>
+        <a href="#" class="btn btn-primary">@Item.ItemReviewList.Count Recensioni</a>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public ItemResponse Item { get; set; }
+}

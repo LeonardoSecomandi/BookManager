@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.Models", "BookM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.API", "BookManager.API\BookManager.API.csproj", "{E9CDE3D8-87F6-49DF-9F25-880D6C129A2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp.WEB", "BlazorApp.WEB\BlazorApp.WEB.csproj", "{30435C1D-7D7C-4656-BD71-0EB3D86C2F0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.WEB", "BlazorApp.WEB\BlazorApp.WEB.csproj", "{30435C1D-7D7C-4656-BD71-0EB3D86C2F0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

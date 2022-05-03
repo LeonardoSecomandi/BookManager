@@ -1,5 +1,6 @@
 using BlazorApp.WEB.Areas.Identity;
 using BlazorApp.WEB.Data;
+using BlazorApp.WEB.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace BlazorApp.WEB
@@ -41,6 +43,18 @@ namespace BlazorApp.WEB
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddSingleton<WeatherForecastService>();
+            services.AddScoped<IBookInterface, BookService>();
+
+            services.AddHttpClient<IBookInterface, BookService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44318/");
+            }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                AllowAutoRedirect = false,
+                AutomaticDecompression = System.Net.DecompressionMethods.Deflate | System.Net.DecompressionMethods.GZip,
+                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

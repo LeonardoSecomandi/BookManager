@@ -13,9 +13,12 @@ namespace BookManager.API.Models.Repositories
     public class ItemRepository : IItemInterface
     {
         private readonly ApplicationDbContext _context;
-        public ItemRepository(ApplicationDbContext context)
+        private readonly IBookRepositoryInterface BookService;
+        public ItemRepository(ApplicationDbContext context,
+            IBookRepositoryInterface BookService)
         {
             this._context = context;
+            this.BookService = BookService;
         }
         public async Task<IEnumerable<ItemResponse>> GetItems()
         {
@@ -28,10 +31,14 @@ namespace BookManager.API.Models.Repositories
                 var itemreview = await _context.Reviews.ToListAsync();
                 itemreview = itemreview.Where(x => x.ItemId == item.Id).ToList();
 
+                var Book = await BookService.GetBookById(item.BookId);
+                var b = Book.Book;
+                b.RatingAverage = Book.RatingsAverage;
+
                 ItemResponse newitem = new ItemResponse()
                 {
                     ItemId=item.Id,
-                    Book = await _context.Books.FirstOrDefaultAsync(x => x.Id == item.BookId),
+                    Book = b,
                     ItemDiscussionList = itemdiscussion,
                     ItemReviewList = itemreview
                 };
@@ -55,10 +62,15 @@ namespace BookManager.API.Models.Repositories
             var reviewlist = await _context.Reviews.ToListAsync();
             reviewlist = reviewlist.Where(x => x.ItemId == itemid).ToList();
 
+            var Book = await BookService.GetBookById(item.BookId);
+            var b = Book.Book;
+            b.RatingAverage = Book.RatingsAverage;
+
+
             return new ItemResponse()
             {
                 ItemId = item.Id,
-                Book = await _context.Books.FirstOrDefaultAsync(x => x.Id == item.BookId),
+                Book = b,
                 ItemDiscussionList = discussionlist,
                 ItemReviewList = reviewlist
             };

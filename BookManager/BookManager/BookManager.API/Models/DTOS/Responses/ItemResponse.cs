@@ -9,6 +9,7 @@ namespace BookManager.API.Models.DTOS.Responses
 {
     public class ItemResponse
     {
+        public int ItemId { get; set; }
         public Book Book { get; set; }
         public List<Review> ItemReviewList { get; set; }
         public List<Discussion> ItemDiscussionList { get; set; }

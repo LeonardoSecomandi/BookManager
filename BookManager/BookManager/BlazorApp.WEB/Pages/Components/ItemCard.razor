@@ -5,7 +5,7 @@
     <div class="card-body">
         <h5 class="card-title">@Item.Book.Titolo</h5>
         <p class="card-text">@Item.Book.Description</p>
-        <a href="#" class="btn btn-primary">@Item.ItemReviewList.Count Recensioni</a>
+        <a href="#" @onclick="VisitBookDetail" class="btn btn-primary">@Item.ItemReviewList.Count Recensioni</a>
     </div>
 </div>
 
@@ -13,4 +13,12 @@
 
     [Parameter]
     public ItemResponse Item { get; set; }
+
+    [Inject]
+    protected NavigationManager nv { get; set; }
+
+    protected void VisitBookDetail()
+    {
+        nv.NavigateTo($"/book/{Item.ItemId}/detail");
+    }
 }

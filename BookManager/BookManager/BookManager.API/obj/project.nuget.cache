@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ty9Lxhk0TvI8MG+LUFfQviFw+mjr7a7M4GtgUadAVXbiQcRuVOdjSpvexs3BoYRhbGK7Daz0xuOc2XCiaOYRYg==",
+  "dgSpecHash": "/oT3LoGgd33qUn/DgVVVHBjS79G/B/G2n9xD2kcs+zSs22psahvmREFxrZ1UI7mVBZ6J43HElefaJI/ejqo8qg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager\\BookManager.API\\BookManager.API.csproj",
+  "projectFilePath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\BookManager\\BookManager\\BookManager.API\\BookManager.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\secomandi.17131\\.nuget\\packages\\htmlagilitypack\\1.11.42\\htmlagilitypack.1.11.42.nupkg.sha512",
     "C:\\Users\\secomandi.17131\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

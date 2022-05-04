@@ -47,7 +47,7 @@ namespace BlazorApp.WEB
 
             services.AddHttpClient<IBookInterface, BookService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44318/");
+                client.BaseAddress = new Uri("https://localhost:44381/");
             }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
             {
                 AllowAutoRedirect = false,

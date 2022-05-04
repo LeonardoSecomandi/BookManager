@@ -11,5 +11,7 @@ namespace BookManager.API.Models.Interfaces
     {
         public Task<IEnumerable<ItemResponse>> GetItems();
         public Task<BookManager.Models.Item> AddItem(BookManager.Models.Item item);
+
+        public Task<ItemResponse> GetItem(int itemid);
     }
 }

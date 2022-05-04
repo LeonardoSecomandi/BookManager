@@ -35,9 +35,10 @@ namespace BlazorApp.WEB.Services
             return result;
         }
 
-        public Task<ItemResponse> GetItem(int ItemId)
+        public async Task<ItemResponse> GetItem(int ItemId)
         {
-            throw new NotImplementedException();
+            var result = await _httpCleint.GetJsonAsync<ItemResponse>($"Item/api/item/{ItemId}");
+            return result;
         }
     }
 }

@@ -32,5 +32,12 @@ namespace BookManager.API.Controllers
             var result = await _itemservice.AddItem(item);
             return result;
         }
+
+        [HttpGet("item/{itemid:int}")]
+        public async Task<ItemResponse> GetItem(int itemid)
+        {
+            var result = await _itemservice.GetItem(itemid);
+            return result;
+        }
     }
 }

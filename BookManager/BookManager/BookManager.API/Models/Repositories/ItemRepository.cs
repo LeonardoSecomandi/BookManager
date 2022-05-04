@@ -30,6 +30,7 @@ namespace BookManager.API.Models.Repositories
 
                 ItemResponse newitem = new ItemResponse()
                 {
+                    ItemId=item.Id,
                     Book = await _context.Books.FirstOrDefaultAsync(x => x.Id == item.BookId),
                     ItemDiscussionList = itemdiscussion,
                     ItemReviewList = itemreview
@@ -43,6 +44,24 @@ namespace BookManager.API.Models.Repositories
         {
             var result = await _context.AddAsync(item);
             return result.Entity;
+        }
+
+        public async Task<ItemResponse> GetItem(int itemid)
+        {
+            var item = await _context.Items.FirstOrDefaultAsync(x => x.Id == itemid);
+            var discussionlist = await _context.Discussions.ToListAsync();
+            discussionlist = discussionlist.Where(x => x.ItemId == itemid).ToList();
+
+            var reviewlist = await _context.Reviews.ToListAsync();
+            reviewlist = reviewlist.Where(x => x.ItemId == itemid).ToList();
+
+            return new ItemResponse()
+            {
+                ItemId = item.Id,
+                Book = await _context.Books.FirstOrDefaultAsync(x => x.Id == item.BookId),
+                ItemDiscussionList = discussionlist,
+                ItemReviewList = reviewlist
+            };
         }
     }
 }

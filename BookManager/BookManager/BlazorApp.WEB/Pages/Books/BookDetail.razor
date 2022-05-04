@@ -4,7 +4,10 @@
 <h3>BookDetail</h3>
 
 
-<p>@Book.Book.Titolo</p>
+@if (Book.Book != null)
+{
+    <h2>@Book.Book.Titolo</h2>
+}
 
 @code {
 

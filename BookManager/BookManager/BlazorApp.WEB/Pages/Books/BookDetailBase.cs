@@ -16,7 +16,7 @@ namespace BlazorApp.WEB.Pages.Books
         [Parameter]
         public string itemid { get; set; }
 
-        protected ItemResponse Book { get; set; }
+        protected ItemResponse Book = new ItemResponse();
 
         protected override async Task OnInitializedAsync()
         {

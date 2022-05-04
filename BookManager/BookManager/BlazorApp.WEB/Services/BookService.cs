@@ -37,7 +37,7 @@ namespace BlazorApp.WEB.Services
 
         public async Task<ItemResponse> GetItem(int ItemId)
         {
-            var result = await _httpCleint.GetJsonAsync<ItemResponse>($"Item/api/item/{ItemId}");
+            var result = await _httpCleint.GetJsonAsync<ItemResponse>($"Item/api/{ItemId}");
             return result;
         }
     }

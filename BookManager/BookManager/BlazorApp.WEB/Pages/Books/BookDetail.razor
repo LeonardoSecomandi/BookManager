@@ -43,7 +43,7 @@
         <form>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Numero Stelle</label>
-                <select class="form-select" aria-label="Default select example">
+                <select @bind="@ReviewStars" class="form-select" aria-label="Default select example">
                     <option selected>Open this select menu</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -59,9 +59,9 @@
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Commento</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea @bind="ReviewContent" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button @onclick="PostReview" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>

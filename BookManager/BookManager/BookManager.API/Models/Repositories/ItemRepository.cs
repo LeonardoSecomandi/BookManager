@@ -33,7 +33,7 @@ namespace BookManager.API.Models.Repositories
 
                 var Book = await BookService.GetBookById(item.BookId);
                 var b = Book.Book;
-                b.RatingAverage = Book.RatingsAverage;
+                //b.RatingAverage = Book.RatingsAverage;
 
                 ItemResponse newitem = new ItemResponse()
                 {
@@ -64,7 +64,7 @@ namespace BookManager.API.Models.Repositories
 
             var Book = await BookService.GetBookById(item.BookId);
             var b = Book.Book;
-            b.RatingAverage = Book.RatingsAverage;
+            //b.RatingAverage = Book.RatingsAverage;
 
 
             return new ItemResponse()

@@ -46,7 +46,7 @@ namespace BookManager.Models
 
         public List<Ratings> Ratings { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public double RatingAverage { get; set; }
 
     }

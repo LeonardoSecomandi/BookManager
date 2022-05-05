@@ -68,6 +68,14 @@ namespace BookManager.API.Models.Repositories
             var Category = await _context.Categories.Where(c => c.BookId == Book.Id).ToListAsync();
             var Identifier = await _context.Identifiers.Where(i => i.BookId == Book.Id).ToListAsync();
 
+            var Ratings = await _context.Ratings.Where(r => r.BookId == Book.Id).ToListAsync();
+            double Ratingaverage = 0;
+            if (Ratings.Count == 0)
+                Ratingaverage = 0;
+            else if (Ratings.Count != 0)
+                Ratingaverage = Ratings.Select(x => x.RatingValue).Average();
+            Book.RatingAverage = Ratingaverage;
+
             return new BookResponseModel()
             {
                 Success = true,

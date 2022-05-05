@@ -8,23 +8,24 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\leose\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\secomandi.17131\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
+      "projectUniqueName": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
       "projectName": "BookManager.Models",
-      "projectPath": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
-      "packagesPath": "C:\\Users\\leose\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\obj\\",
+      "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
+      "packagesPath": "C:\\Users\\secomandi.17131\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BookManager.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\leose\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\secomandi.17131\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }

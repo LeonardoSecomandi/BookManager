@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "30435c1d-7d7c-4656-bd71-0eb3d86c2f0e": {
+      "ProjectGuid": "30435c1d-7d7c-4656-bd71-0eb3d86c2f0e",
+      "DisplayName": "BlazorApp.WEB",
+      "ColorIndex": 0
+    },
+    "e9cde3d8-87f6-49df-9f25-880d6c129a2d": {
+      "ProjectGuid": "e9cde3d8-87f6-49df-9f25-880d6c129a2d",
+      "DisplayName": "BookManager.API",
+      "ColorIndex": 1
+    },
+    "039a688e-6780-4e30-bd0b-93658374037a": {
+      "ProjectGuid": "039a688e-6780-4e30-bd0b-93658374037a",
+      "DisplayName": "BookManager.Models",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

@@ -19,6 +19,9 @@ namespace BlazorApp.WEB.Pages.Books
         [Inject]
         protected AuthenticationStateProvider _authenticationStateProvider { get; set; }
 
+        [Inject]
+        public IReviewInterface _reviewService { get; set; }
+
         [Parameter]
         public string itemid { get; set; }
 
@@ -46,8 +49,11 @@ namespace BlazorApp.WEB.Pages.Books
                 ReviewContent = ReviewContent,
                 BookId = Book.Book.Id,
                 ReviewPublishDate = DateTime.Now,
-                UserID = int.Parse(userId)
+                UserID = 20
             };
+
+            var Result = await _reviewService.AddReview(newReview);
+
         }
     }
 }

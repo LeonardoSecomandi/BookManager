@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj": {}
+    "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj": {
+    "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj",
+        "projectUniqueName": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj",
         "projectName": "BlazorApp.WEB",
-        "projectPath": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj",
-        "packagesPath": "C:\\Users\\leose\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BlazorApp.WEB\\obj\\",
+        "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BlazorApp.WEB\\BlazorApp.WEB.csproj",
+        "packagesPath": "C:\\Users\\secomandi.17131\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BlazorApp.WEB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\leose\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\secomandi.17131\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -31,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj": {
-                "projectPath": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj"
+              "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj": {
+                "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj"
               }
             }
           }
@@ -90,24 +91,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj": {
+    "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
+        "projectUniqueName": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
         "projectName": "BookManager.Models",
-        "projectPath": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
-        "packagesPath": "C:\\Users\\leose\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\repository1\\BookManager\\BookManager\\BookManager\\BookManager.Models\\obj\\",
+        "projectPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BookManager.Models\\BookManager.Models.csproj",
+        "packagesPath": "C:\\Users\\secomandi.17131\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\secomandi.17131\\Documents\\GitHub\\ManagerBook\\BookManager\\BookManager\\BookManager.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\leose\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\secomandi.17131\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -147,7 +149,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -36,7 +36,7 @@ namespace BlazorApp.WEB
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
             services.AddServerSideBlazor();
@@ -44,8 +44,20 @@ namespace BlazorApp.WEB
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddSingleton<WeatherForecastService>();
             services.AddScoped<IBookInterface, BookService>();
+            services.AddScoped<IReviewInterface, ReviewService>();
 
             services.AddHttpClient<IBookInterface, BookService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44381/");
+            }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                AllowAutoRedirect = false,
+                AutomaticDecompression = System.Net.DecompressionMethods.Deflate | System.Net.DecompressionMethods.GZip,
+                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+
+            });
+
+            services.AddHttpClient<IReviewInterface, ReviewService>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:44381/");
             }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler

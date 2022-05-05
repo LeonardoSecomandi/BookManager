@@ -75,5 +75,30 @@ namespace BookManager.API.Models.Repositories
                 ItemReviewList = reviewlist
             };
         }
+
+        public async Task<IEnumerable<ItemResponse>> Search(string Terms)
+        {
+            List<ItemResponse> Results = new List<ItemResponse>();
+
+            var Match = await _context.Books.ToListAsync();
+            Match = Match.Where(i => i.Titolo.Contains(Terms)).ToList();
+
+            var matchAutors = await _context.Authors.ToListAsync();
+            matchAutors = matchAutors.Where(x => x.AuthorName.Contains(Terms)).ToList();
+
+
+            foreach(var item in Match)
+            {
+                var Item = await _context.Items.ToListAsync();
+                 var ItemId = Item.FirstOrDefault(x => x.BookId == item.Id);
+                if (ItemId != null)
+                {
+                    var Itemrespose = await GetItem(ItemId.Id);
+                    Results.Add(Itemrespose);
+                }
+                
+            }
+            return Results;
+        }
     }
 }

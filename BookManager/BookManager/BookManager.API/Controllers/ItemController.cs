@@ -39,5 +39,12 @@ namespace BookManager.API.Controllers
             var result = await _itemservice.GetItem(itemid);
             return result;
         }
+
+        [HttpGet("search")]
+        public async Task<IEnumerable<ItemResponse>> Search(string Terms)
+        {
+            var result = await _itemservice.Search(Terms);
+            return result;
+        }
     }
 }

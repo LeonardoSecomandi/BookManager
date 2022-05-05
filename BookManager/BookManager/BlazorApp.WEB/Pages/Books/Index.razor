@@ -1,9 +1,24 @@
 ﻿@page   "/books"
 @inherits IndexBase
 
-<div class="row row-cols-1 row-cols-md-2" style="margin-top: 6rem;">
-    @foreach (var Item in EleItem)
-    {
-        <BlazorApp.WEB.Pages.Components.ItemCard Item="Item"></BlazorApp.WEB.Pages.Components.ItemCard>
-    }
-    </div>
+
+<AuthorizeView>
+    <Authorized>
+        <div style="text-align:center">
+            <h3><label for="exampleFormControlInput1" sty class="form-label">Cerca Libro</label></h3>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Titolo/Autore">
+        </div> 
+        <div class="row row-cols-1 row-cols-md-2" style="margin-top: 6rem;">
+            @foreach (var Item in EleItem)
+            {
+                <BlazorApp.WEB.Pages.Components.ItemCard Item="Item"></BlazorApp.WEB.Pages.Components.ItemCard>
+            }
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <h2>Login Richiesto</h2>
+        <a href="/Identity/Account/Login">Loggati</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+    

@@ -448,3 +448,5 @@ C:\Users\secomandi.17131\Documents\GitHub\ManagerBook\BookManager\BookManager\Bl
 C:\Users\secomandi.17131\Documents\GitHub\ManagerBook\BookManager\BookManager\BlazorApp.WEB\obj\Debug\net5.0\ref\BlazorApp.WEB.dll
 C:\Users\secomandi.17131\Documents\GitHub\ManagerBook\BookManager\BookManager\BlazorApp.WEB\obj\Debug\net5.0\BlazorApp.WEB.pdb
 C:\Users\secomandi.17131\Documents\GitHub\ManagerBook\BookManager\BookManager\BlazorApp.WEB\obj\Debug\net5.0\BlazorApp.WEB.genruntimeconfig.cache
+C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BookManager\BlazorApp.WEB\obj\Debug\net5.0\RazorDeclaration\Pages\Books\BookDetail.razor.g.cs
+C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BookManager\BlazorApp.WEB\obj\Debug\net5.0\Razor\Pages\Books\BookDetail.razor.g.cs

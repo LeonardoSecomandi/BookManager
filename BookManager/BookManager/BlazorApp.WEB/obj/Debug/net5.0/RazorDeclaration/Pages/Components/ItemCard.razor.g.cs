@@ -97,7 +97,7 @@ using BookManager.WEB.Models.DTOS.Responses;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 13 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\Pages\Components\ItemCard.razor"
+#line 16 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\Pages\Components\ItemCard.razor"
        
 
     [Parameter]
@@ -106,9 +106,17 @@ using BookManager.WEB.Models.DTOS.Responses;
     [Inject]
     protected NavigationManager nv { get; set; }
 
+    [Parameter]
+    public EventCallback<ItemResponse> ShowReview { get; set; }
+
     protected void VisitBookDetail()
     {
         nv.NavigateTo($"/book/{Item.ItemId}/detail");
+    }
+
+    protected async void ShowAnteprima()
+    {
+        await ShowReview.InvokeAsync(Item);
     }
 
 #line default

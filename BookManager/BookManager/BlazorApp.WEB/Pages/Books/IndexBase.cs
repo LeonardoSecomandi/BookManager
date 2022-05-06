@@ -16,6 +16,8 @@ namespace BlazorApp.WEB.Pages.Books
 
         public IEnumerable<ItemResponse> EleItem = new List<ItemResponse>();
 
+        protected string SearchedText { get; set; }
+
         List<Review> EleReviewAnteprima = new List<Review>();
 
         protected override async Task OnInitializedAsync()

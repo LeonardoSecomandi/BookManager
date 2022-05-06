@@ -14,9 +14,12 @@ namespace BookManager.API.Controllers
     public class ItemController : ControllerBase
     {
         private readonly IItemInterface _itemservice;
-        public ItemController(IItemInterface itemInterface)
+        private readonly IExtractBookFromGoogleApi extract;
+        public ItemController(IItemInterface itemInterface,
+            IExtractBookFromGoogleApi extract)
         {
             this._itemservice = itemInterface;
+            this.extract = extract;
         }
 
         [HttpGet]
@@ -43,6 +46,7 @@ namespace BookManager.API.Controllers
         [HttpGet("search")]
         public async Task<IEnumerable<ItemResponse>> Search(string Terms)
         {
+            await extract.ExtractBooksFromLink(Terms);
             var result = await _itemservice.Search(Terms);
             return result;
         }

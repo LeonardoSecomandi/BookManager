@@ -5,11 +5,11 @@
     <div class="card-body">
         <h5 class="card-title">@Item.Book.Titolo</h5>
         <p class="card-text">@Item.Book.Description</p>
+        <h6>Valutazioni Complessive: @Item.Book.RatingAverage</h6>
+        <a href="#" @onclick="VisitBookDetail" class="btn btn-primary">Dettagli</a><br />
 
-        <a href="#" @onclick="VisitBookDetail" class="btn btn-primary">@Item.ItemReviewList.Count Recensioni</a>
-        <h6>@Item.Book.RatingAverage</h6>
 
-        <a href="#" @onclick="ShowAnteprima" class="btn btn-primary">@Item.ItemReviewList.Count Anteprima Recensioni</a>
+        <a href="#" @onclick="VisitBookDetail">@Item.ItemReviewList.Count Recensioni</a>
 
     </div>
 </div>

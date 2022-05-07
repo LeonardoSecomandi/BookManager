@@ -14,7 +14,12 @@ namespace BlazorApp.WEB.Pages.Books
         [Inject]
         protected IBookInterface BookService { get; set; }
 
+        [Inject]
+        protected NavigationManager nv { get; set; }
+
         public IEnumerable<ItemResponse> EleItem = new List<ItemResponse>();
+
+        public IEnumerable<ItemResponse> SearchedItem = new List<ItemResponse>();
 
         protected string SearchedText { get; set; }
 
@@ -32,6 +37,19 @@ namespace BlazorApp.WEB.Pages.Books
             {
                 EleReviewAnteprima.Add(review);
             }
+        }
+
+        protected async Task Search()
+        {
+            if (string.IsNullOrEmpty(SearchedText))
+            {
+                SearchedItem = new List<ItemResponse>();
+                nv.NavigateTo("/books");ciao seco
+                return;
+            }
+                
+            SearchedItem = await BookService.Search(SearchedText);
+            return;
         }
     }
 }

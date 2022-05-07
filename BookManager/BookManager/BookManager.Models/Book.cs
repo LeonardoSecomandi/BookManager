@@ -16,13 +16,13 @@ namespace BookManager.Models
 
         public List<Author> Authors { get; set; }
 
-        [Required]
+        //[Required]
         public string Publisher { get; set; }
 
         [Required]
         public string PublishDate { get; set; }
 
-        [Required]
+        //[Required]
         public string Description { get; set; }
 
         public List<Identifiers> IndustryIdentifiers { get; set; }

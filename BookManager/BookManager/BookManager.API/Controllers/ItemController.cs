@@ -43,7 +43,7 @@ namespace BookManager.API.Controllers
             return result;
         }
 
-        [HttpGet("search")]
+        [HttpGet("search/{Terms}")]
         public async Task<IEnumerable<ItemResponse>> Search(string Terms)
         {
             await extract.ExtractBooksFromLink(Terms);

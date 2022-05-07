@@ -15,5 +15,7 @@ namespace BlazorApp.WEB.Services
 
         public Task<BookResponseModel> GetBook(int BookId);
 
+        public Task<IEnumerable<ItemResponse>> Search(string Terms);
+
     }
 }

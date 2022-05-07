@@ -4,7 +4,7 @@
     <img src="@Item.Book.ImageLink" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">@Item.Book.Titolo</h5>
-        <p class="card-text">@Item.Book.Description</p>
+        <p class="card-text">@Item.Book.Description?.Remove(4) ...</p>
         <h6>Valutazioni Complessive: @Item.Book.RatingAverage</h6>
         <a href="#" @onclick="VisitBookDetail" class="btn btn-primary">Dettagli</a><br />
 

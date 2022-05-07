@@ -40,5 +40,11 @@ namespace BlazorApp.WEB.Services
             var result = await _httpCleint.GetJsonAsync<ItemResponse>($"Item/api/{ItemId}");
             return result;
         }
+
+        public async Task<IEnumerable<ItemResponse>> Search(string Terms)
+        {
+            var result = await _httpCleint.GetJsonAsync<IEnumerable<ItemResponse>>($"Item/api/search/{Terms}");
+            return result;
+        }
     }
 }

@@ -88,6 +88,10 @@ namespace BookManager.API.Models.Repositories
 
         public async Task<AddBookResponse> AddBook(AddBookRequest req)
         {
+            var isBook = await _context.Books.FirstOrDefaultAsync(x => x.Titolo == req.Book.Titolo);
+            if (isBook != null)
+                return null;
+
             var result = await _context.AddAsync(req.Book);
             await _context.SaveChangesAsync();
             if (result.Entity is not null)

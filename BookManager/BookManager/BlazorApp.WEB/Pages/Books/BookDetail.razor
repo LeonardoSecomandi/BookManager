@@ -1,8 +1,6 @@
 ﻿@page "/book/{itemid}/detail"
 @inherits BookDetailBase
 
-<h3>BookDetail</h3>
-
 
 @if (Book.Book != null)
 {
@@ -18,6 +16,7 @@
             <h5>@Book.Book.Description</h5>
             <hr />
             <h5>
+                <br />
                 Valutazioni:<br />
                 @Book.Book.RatingAverage
                 <br />
@@ -26,10 +25,12 @@
         </div>
     </div>
     <div class="card col-4">
+        <br />
         <h3>Recensioni</h3>
         <hr />
         @foreach(var Review in Book.ItemReviewList)
         {
+           //<h1>@Usermanager.FindByIdAsync(Review.Rating.UserId).Result.UserName</h1>
             <h6>@Review.ReviewPublishDate</h6><br />
             <h4>@Review.ReviewStars</h4><br />
             <h3>@Review.ReviewContent</h3>
@@ -66,3 +67,4 @@
     </div>
 </div>
 }
+

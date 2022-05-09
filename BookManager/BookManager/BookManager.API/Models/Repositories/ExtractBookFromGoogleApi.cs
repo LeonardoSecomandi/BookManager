@@ -53,21 +53,30 @@ namespace BookManager.API.Models.Repositories
 
                 // string Json = File.ReadAllText();
                 Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(finalHtml);
-                foreach (Item item in myDeserializedClass.items)
+                foreach (Item item in myDeserializedClass.items.Take(5))
                 {
-                    var newVolume = new Book()
-                    {
-                        Titolo = item.volumeInfo.title,
-                        ContentVersion = item.volumeInfo.contentVersion,
-                        PageCount = item.volumeInfo.pageCount,
-                        Description = item.volumeInfo.description?.ToString(),
-                        ImageLink = item.volumeInfo.imageLinks.thumbnail,
-                        Language = item.volumeInfo.language,
-                        MaturityRating = item.volumeInfo.maturityRating,
-                        PublishDate = item.volumeInfo.publishedDate?.ToString(),
-                        Publisher = item.volumeInfo.publisher?.ToString(),
-                        ////////
-                    };
+
+
+
+
+
+
+
+                    var newVolume = new Book();
+                    newVolume.Titolo = item.volumeInfo.title;
+                    newVolume.ContentVersion = item.volumeInfo.contentVersion;
+                    if (item.volumeInfo.description is not null)
+                        newVolume.Description = item.volumeInfo.description;
+                    if(item.volumeInfo.imageLinks?.thumbnail is not null)
+                        newVolume.ImageLink = item.volumeInfo.imageLinks.thumbnail;
+                    newVolume.Language = item.volumeInfo.language;
+                    newVolume.MaturityRating = item.volumeInfo.maturityRating;
+                    if (item.volumeInfo.publishedDate is not null)
+                        newVolume.PublishDate = item.volumeInfo.publishedDate.ToString();
+                    if (item.volumeInfo.publisher is not null)
+                        newVolume.Publisher = item.volumeInfo.publisher;
+
+                   
                     var isBook = await _context.Books.FirstOrDefaultAsync(x => x.Titolo == newVolume.Titolo);
                     if (isBook is null)
                     {
@@ -87,27 +96,35 @@ namespace BookManager.API.Models.Repositories
                             await _context.AddAsync(NewIdentifier);
                             await _context.SaveChangesAsync();
                         }
-                        foreach (var author in item.volumeInfo.authors)
+                        if (item.volumeInfo.authors != null)
                         {
-                            newAuthor = new Author()
+
+
+                            foreach (var author in item.volumeInfo.authors)
                             {
-                                BookId = newVolume.Id,
-                                AuthorName = author,
-                            };
-                            await _context.AddAsync(newAuthor);
-                            await _context.SaveChangesAsync();
+                                newAuthor = new Author()
+                                {
+                                    BookId = newVolume.Id,
+                                    AuthorName = author,
+                                };
+                                await _context.AddAsync(newAuthor);
+                                await _context.SaveChangesAsync();
+                            }
                         }
                         try
                         {
-                            foreach (var category in item.volumeInfo.categories)
+                            if (item.volumeInfo.categories != null)
                             {
-                                newCat = new Categories()
+                                foreach (var category in item.volumeInfo.categories)
                                 {
-                                    BookId = newVolume.Id,
-                                    CategoryName = category,
-                                };
-                                await _context.AddAsync(newCat);
-                                await _context.SaveChangesAsync();
+                                    newCat = new Categories()
+                                    {
+                                        BookId = newVolume.Id,
+                                        CategoryName = category,
+                                    };
+                                    await _context.AddAsync(newCat);
+                                    await _context.SaveChangesAsync();
+                                }
                             }
                         }
                         catch (Exception)

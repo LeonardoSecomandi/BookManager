@@ -1,5 +1,6 @@
-﻿@page   "/books"
+﻿@page   "/"
 @inherits IndexBase
+
 
 
 
@@ -12,22 +13,22 @@
             </div>
 
         </div>
-        @if (SearchedItem.Any())
+        @if (SearchedItem.ToList().Any())
         {
-            @foreach (var item in SearchedItem)
-            {
+            <h2>Risultati Ricerca:</h2><br />
+            
                 <div class="row row-cols-1 row-cols-md-2" style="margin-top: 6rem;">
                     @foreach (var Item in SearchedItem)
                     {
                         <BlazorApp.WEB.Pages.Components.ItemCard Item="Item" ShowReview="()=>ShowReviewClick(Item)"></BlazorApp.WEB.Pages.Components.ItemCard>
                     }
                 </div>
-            }
+            
         }
 
-        @if (!SearchedItem.Any())
+        @if (SearchedItem is null || string.IsNullOrEmpty(SearchedText))
         {
-
+            <h2>Libri più recenti</h2>
             <div class="row row-cols-1 row-cols-md-2" style="margin-top: 6rem;">
                 @foreach (var Item in EleItem)
                 {

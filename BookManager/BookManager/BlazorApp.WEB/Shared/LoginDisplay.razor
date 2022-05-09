@@ -1,6 +1,8 @@
-﻿<AuthorizeView>
+﻿@inject NavigationManager nv
+
+<AuthorizeView>
     <Authorized>
-        <a href="/books">Home</a>
+        <a href="#" @onclick="GoHome">Home</a>
         <a href="Identity/Account/Manage">Hello, @context.User.Identity.Name!</a>
         <form method="post" action="Identity/Account/LogOut">
             <button type="submit" class="nav-link btn btn-link">Log out</button>
@@ -11,3 +13,13 @@
         <a href="Identity/Account/Login">Log in</a>
     </NotAuthorized>
 </AuthorizeView>
+
+@code{
+
+
+
+    protected void GoHome()
+    {
+        nv.NavigateTo("/", true);
+    }
+}

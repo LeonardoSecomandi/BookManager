@@ -28,6 +28,8 @@ namespace BlazorApp.WEB.Pages.Books
         protected override async Task OnInitializedAsync()
         {
              EleItem = await BookService.GetItems();
+            EleItem.ToList().OrderBy(x => x.Book.RatingAverage);
+            SearchedText = "";
         }
 
         protected void ShowReviewClick(ItemResponse item)
@@ -41,14 +43,16 @@ namespace BlazorApp.WEB.Pages.Books
 
         protected async Task Search()
         {
+            SearchedItem = new List<ItemResponse>();
             if (string.IsNullOrEmpty(SearchedText))
             {
-                SearchedItem = new List<ItemResponse>();
-                nv.NavigateTo("/books");ciao seco
+                nv.NavigateTo("/");
                 return;
             }
                 
             SearchedItem = await BookService.Search(SearchedText);
+            SearchedItem = SearchedItem.ToList().Distinct();
+            StateHasChanged();
             return;
         }
     }

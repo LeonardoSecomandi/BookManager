@@ -20,7 +20,12 @@ namespace BlazorApp.WEB.Pages.Books
         protected AuthenticationStateProvider _authenticationStateProvider { get; set; }
 
         [Inject]
+        protected UserManager<IdentityUser> Usermanager { get; set; }
+
+        [Inject]
         public IReviewInterface _reviewService { get; set; }
+
+        public List<string> Usernames = new List<string>();
 
         [Parameter]
         public string itemid { get; set; }
@@ -34,6 +39,7 @@ namespace BlazorApp.WEB.Pages.Books
         protected override async Task OnInitializedAsync()
         {
             Book = await BookService.GetItem(int.Parse(itemid));
+            //await Getusername();
             return;
         }
 
@@ -49,11 +55,21 @@ namespace BlazorApp.WEB.Pages.Books
                 ReviewContent = ReviewContent,
                 BookId = Book.Book.Id,
                 ReviewPublishDate = DateTime.Now,
-                UserID = 20
+                UserID = userId
             };
 
             var Result = await _reviewService.AddReview(newReview);
 
+        }
+
+        protected async Task Getusername()
+        {
+            
+            foreach(var review in Book.ItemReviewList)
+            {
+                var Result = await Usermanager.FindByIdAsync(review.Rating.UserId);
+                Usernames.Add(Result.UserName);
+            }
         }
     }
 }

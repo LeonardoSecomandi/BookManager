@@ -49,5 +49,10 @@ namespace BookManager.Models
         //[JsonIgnore]
         public double RatingAverage { get; set; }
 
+        public Book()
+        {
+            
+        }
+
     }
 }

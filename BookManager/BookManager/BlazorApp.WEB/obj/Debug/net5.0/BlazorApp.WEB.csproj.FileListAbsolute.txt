@@ -454,3 +454,5 @@ D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\obj\Debu
 D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\obj\Debug\net5.0\Razor\Pages\Components\ShowReviewDialog.razor.g.cs
 C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BookManager\BlazorApp.WEB\obj\Debug\net5.0\RazorDeclaration\Pages\Components\ShowReviewDialog.razor.g.cs
 C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BookManager\BlazorApp.WEB\obj\Debug\net5.0\Razor\Pages\Components\ShowReviewDialog.razor.g.cs
+C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\obj\Debug\net5.0\RazorDeclaration\Pages\Components\ShowReviewDialog.razor.g.cs
+C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\obj\Debug\net5.0\Razor\Pages\Components\ShowReviewDialog.razor.g.cs

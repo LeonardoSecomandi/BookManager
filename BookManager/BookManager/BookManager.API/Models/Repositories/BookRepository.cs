@@ -112,5 +112,33 @@ namespace BookManager.API.Models.Repositories
                 AddedBook = null
             };
         }
+
+        public async Task<IEnumerable<Book>> GetUserSavedBooks(string UserId)
+        {
+            List<Book> EleBookds = new List<Book>();
+
+            var BooksId = await _context.SavedBooks.ToListAsync();
+            BooksId = BooksId.Where(x => x.UserId == UserId).ToList();
+            
+            
+            foreach (var bookid in BooksId)
+            {
+                var CorrespondBook = await _context.Books.FirstOrDefaultAsync(x => x.Id == bookid.SavedBookId);
+                EleBookds.Add(CorrespondBook);
+            }
+            return EleBookds;
+        }
+
+        public async Task<SavedBooks> AddBookToFavourites(AddBookTOFavouireRequest request)
+        {
+            var Book = await _context.Books.FirstOrDefaultAsync(x => x.Id == request.BookId);
+           var Result= await _context.SavedBooks.AddAsync(new SavedBooks()
+            {
+                SavedBookId = Book.Id,
+                UserId = request.UserId
+           });
+            await _context.SaveChangesAsync();
+            return Result.Entity;
+        }
     }
 }

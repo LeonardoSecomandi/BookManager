@@ -25,6 +25,9 @@ namespace BookManager.API.Data
         public DbSet<Discussion> Discussions { get; set; }
         public DbSet<Identifiers> Identifiers { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<SavedBooks> SavedBooks { get; set; }
+
+        
         
 
 

@@ -1,5 +1,8 @@
-﻿using BookManager.WEB.Models.DTOS.Responses;
+﻿using BookManager.Models;
+using BookManager.WEB.Models.DTOS.Requests;
+using BookManager.WEB.Models.DTOS.Responses;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +16,12 @@ namespace BlazorApp.WEB.Services
     {
 
         private readonly HttpClient _httpCleint;
-        public BookService(HttpClient client)
+        private readonly AuthenticationStateProvider authenticationStateProvider;
+        public BookService(HttpClient client,
+            AuthenticationStateProvider authenticationStateProvider)
         {
             this._httpCleint = client;
+            this.authenticationStateProvider = authenticationStateProvider;
         }
 
         public Task<BookResponseModel> GetBook(int BookId)
@@ -44,6 +50,20 @@ namespace BlazorApp.WEB.Services
         public async Task<IEnumerable<ItemResponse>> Search(string Terms)
         {
             var result = await _httpCleint.GetJsonAsync<IEnumerable<ItemResponse>>($"Item/api/search/{Terms}");
+            return result;
+        }
+
+        public async Task<SavedBooks> AddBookToFavourites(AddBookTOFavouireRequest request)
+        {
+             var User = await authenticationStateProvider.GetAuthenticationStateAsync();
+            var UserInfo = User.User;
+            string userId = UserInfo.FindFirst(c => c.Type.Contains("nameidentifier"))?.Value;
+            var result = await _httpCleint.PostJsonAsync<SavedBooks>("Book/api/addtofavourites", new AddBookTOFavouireRequest()
+            {
+                UserId = userId,
+                BookId = request.BookId
+            });
+
             return result;
         }
     }

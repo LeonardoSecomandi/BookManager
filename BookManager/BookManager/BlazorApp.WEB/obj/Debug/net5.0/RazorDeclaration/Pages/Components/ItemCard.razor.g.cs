@@ -13,78 +13,85 @@ namespace BlazorApp.WEB.Pages.Components
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
+#line 1 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
+#line 2 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
+#line 3 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
+#line 4 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
+#line 5 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
+#line 6 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
+#line 7 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
+#line 8 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
+#line 9 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
 using BlazorApp.WEB;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
+#line 10 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\_Imports.razor"
 using BlazorApp.WEB.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\Pages\Components\ItemCard.razor"
+#line 1 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\Pages\Components\ItemCard.razor"
 using BookManager.WEB.Models.DTOS.Responses;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\Pages\Components\ItemCard.razor"
+using BlazorApp.WEB.Services;
 
 #line default
 #line hidden
@@ -97,7 +104,7 @@ using BookManager.WEB.Models.DTOS.Responses;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 16 "C:\Users\secomandi.17131\Documents\GitHub\BookManager\BookManager\BlazorApp.WEB\Pages\Components\ItemCard.razor"
+#line 24 "D:\GitHub\repository1\BookManager\BookManager\BookManager\BlazorApp.WEB\Pages\Components\ItemCard.razor"
        
 
     [Parameter]
@@ -105,6 +112,9 @@ using BookManager.WEB.Models.DTOS.Responses;
 
     [Inject]
     protected NavigationManager nv { get; set; }
+
+    [Inject]
+    protected IBookInterface BookService { get; set; }
 
     [Parameter]
     public EventCallback<ItemResponse> ShowReview { get; set; }
@@ -117,6 +127,15 @@ using BookManager.WEB.Models.DTOS.Responses;
     protected async void ShowAnteprima()
     {
         await ShowReview.InvokeAsync(Item);
+    }
+
+    protected async Task AddToFavourite()
+    {
+        var result = await BookService.AddBookToFavourites(new BookManager.WEB.Models.DTOS.Requests.AddBookTOFavouireRequest()
+        {
+            BookId = Item.Book.Id
+        });
+        return;
     }
 
 #line default

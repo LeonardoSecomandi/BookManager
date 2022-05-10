@@ -66,5 +66,33 @@ namespace BookManager.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Errore nel recupero dati dal database");
             }
         }
+
+        [HttpGet("savedbooks")]
+        public async Task<ActionResult<IEnumerable<Book>>>GetSavedBooks(string UserId)
+        {
+            try
+            {
+                var Books = await _bookRepositoryService.GetUserSavedBooks(UserId);
+                return Ok(Books);
+            }
+            catch(Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Errore nel recupero dati dal database");
+            }
+        }
+
+        [HttpPost("addtofavourites")]
+        public async Task<ActionResult<SavedBooks>> AddBookToFavourites(AddBookTOFavouireRequest req)
+        {
+            try
+            {
+                var Result = await _bookRepositoryService.AddBookToFavourites(req);
+                return Result;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Errore nel recupero dati dal database");
+            }
+        }
     }
 }

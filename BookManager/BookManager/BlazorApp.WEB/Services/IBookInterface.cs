@@ -1,4 +1,6 @@
-﻿using BookManager.WEB.Models.DTOS.Responses;
+﻿using BookManager.Models;
+using BookManager.WEB.Models.DTOS.Requests;
+using BookManager.WEB.Models.DTOS.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,6 @@ namespace BlazorApp.WEB.Services
         public Task<BookResponseModel> GetBook(int BookId);
 
         public Task<IEnumerable<ItemResponse>> Search(string Terms);
-
+        public  Task<SavedBooks> AddBookToFavourites(AddBookTOFavouireRequest req);
     }
 }

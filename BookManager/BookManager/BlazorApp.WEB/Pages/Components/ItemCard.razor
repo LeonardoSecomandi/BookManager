@@ -35,6 +35,9 @@
     [Parameter]
     public EventCallback<ItemResponse> ShowReview { get; set; }
 
+    [Inject]
+    protected IJSRuntime JsRuntime { get; set; }
+
     protected void VisitBookDetail()
     {
         nv.NavigateTo($"/book/{Item.ItemId}/detail");
@@ -51,6 +54,11 @@
         {
             BookId = Item.Book.Id
         });
+        if(result!=null)
+            await JsRuntime.InvokeVoidAsync("alert", "Libro Aggiunto ai preferiti");
+
+        if(result is null)
+            await JsRuntime.InvokeVoidAsync("alert", "Libro già salvato");
         return;
     }
 }

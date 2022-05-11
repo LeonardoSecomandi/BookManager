@@ -131,6 +131,10 @@ namespace BookManager.API.Models.Repositories
 
         public async Task<SavedBooks> AddBookToFavourites(AddBookTOFavouireRequest request)
         {
+
+            var isBookSaved = await _context.SavedBooks.FirstOrDefaultAsync(x => x.SavedBookId == request.BookId && x.UserId == request.UserId);
+            if (isBookSaved != null)
+                return null;
             var Book = await _context.Books.FirstOrDefaultAsync(x => x.Id == request.BookId);
            var Result= await _context.SavedBooks.AddAsync(new SavedBooks()
             {

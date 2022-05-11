@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorApp.WEB.Pages.Books
+namespace BlazorApp.WEB.Pages
 {
     #line hidden
     using System;
@@ -82,8 +82,7 @@ using BlazorApp.WEB.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : IndexBase
+    public partial class UserSavedBooks : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)

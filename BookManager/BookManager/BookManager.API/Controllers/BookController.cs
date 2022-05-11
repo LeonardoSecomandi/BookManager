@@ -82,17 +82,12 @@ namespace BookManager.API.Controllers
         }
 
         [HttpPost("addtofavourites")]
-        public async Task<ActionResult<SavedBooks>> AddBookToFavourites(AddBookTOFavouireRequest req)
+        public async Task<SavedBooks> AddBookToFavourites(AddBookTOFavouireRequest req)
         {
-            try
-            {
                 var Result = await _bookRepositoryService.AddBookToFavourites(req);
+                if (Result is null)
+                    return null;
                 return Result;
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Errore nel recupero dati dal database");
-            }
         }
     }
 }

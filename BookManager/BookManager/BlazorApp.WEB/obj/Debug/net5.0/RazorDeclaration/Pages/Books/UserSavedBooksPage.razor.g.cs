@@ -82,8 +82,8 @@ using BlazorApp.WEB.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : IndexBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/favourite")]
+    public partial class UserSavedBooksPage : UserSavedBooksBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)

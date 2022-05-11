@@ -19,5 +19,7 @@ namespace BlazorApp.WEB.Services
 
         public Task<IEnumerable<ItemResponse>> Search(string Terms);
         public  Task<SavedBooks> AddBookToFavourites(AddBookTOFavouireRequest req);
+
+        public Task<IEnumerable<Book>> GetUserSavedBooks();
     }
 }

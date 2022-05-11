@@ -3,6 +3,7 @@ using BookManager.WEB.Models.DTOS.Requests;
 using BookManager.WEB.Models.DTOS.Responses;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,16 +56,33 @@ namespace BlazorApp.WEB.Services
 
         public async Task<SavedBooks> AddBookToFavourites(AddBookTOFavouireRequest request)
         {
-             var User = await authenticationStateProvider.GetAuthenticationStateAsync();
-            var UserInfo = User.User;
-            string userId = UserInfo.FindFirst(c => c.Type.Contains("nameidentifier"))?.Value;
-            var result = await _httpCleint.PostJsonAsync<SavedBooks>("Book/api/addtofavourites", new AddBookTOFavouireRequest()
+            try
             {
-                UserId = userId,
-                BookId = request.BookId
-            });
 
-            return result;
+
+                var User = await authenticationStateProvider.GetAuthenticationStateAsync();
+                var UserInfo = User.User;
+                string userId = UserInfo.FindFirst(c => c.Type.Contains("nameidentifier"))?.Value;
+                var result = await _httpCleint.PostJsonAsync<SavedBooks>("Book/api/addtofavourites", new AddBookTOFavouireRequest()
+                {
+                    UserId = userId,
+                    BookId = request.BookId
+                });
+                return result;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public async Task<IEnumerable<Book>> GetUserSavedBooks()
+        {
+                var User = await authenticationStateProvider.GetAuthenticationStateAsync();
+                var UserInfo = User.User;
+                string userId = UserInfo.FindFirst(c => c.Type.Contains("nameidentifier"))?.Value;
+                var result = await _httpCleint.GetJsonAsync<IEnumerable<Book>>($"Book/api/savedbooks?UserId={userId}");
+                return result;
         }
     }
 }

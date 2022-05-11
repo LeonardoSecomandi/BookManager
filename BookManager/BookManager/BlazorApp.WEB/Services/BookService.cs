@@ -84,5 +84,17 @@ namespace BlazorApp.WEB.Services
                 var result = await _httpCleint.GetJsonAsync<IEnumerable<Book>>($"Book/api/savedbooks?UserId={userId}");
                 return result;
         }
+
+        public async Task<bool> RemoveFromFavourite(AddBookTOFavouireRequest req)
+        {
+            var User = await authenticationStateProvider.GetAuthenticationStateAsync();
+            var UserInfo = User.User;
+            string userId = UserInfo.FindFirst(c => c.Type.Contains("nameidentifier"))?.Value;
+            var result = await _httpCleint.PostJsonAsync<bool>("Book/api/remove",new AddBookTOFavouireRequest() {
+                UserId=userId,
+                BookId=req.BookId
+            });
+            return result;
+        }
     }
 }

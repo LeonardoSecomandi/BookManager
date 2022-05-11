@@ -21,5 +21,7 @@ namespace BlazorApp.WEB.Services
         public  Task<SavedBooks> AddBookToFavourites(AddBookTOFavouireRequest req);
 
         public Task<IEnumerable<Book>> GetUserSavedBooks();
+
+        public Task<bool> RemoveFromFavourite(AddBookTOFavouireRequest req);
     }
 }

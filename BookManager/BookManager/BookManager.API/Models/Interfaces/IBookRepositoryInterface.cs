@@ -18,5 +18,7 @@ namespace BookManager.API.Models.Interfaces
         public Task<IEnumerable<Book>> GetUserSavedBooks(string UserId);
 
         public Task<SavedBooks> AddBookToFavourites(AddBookTOFavouireRequest request);
+
+        public Task<bool> RemoveFromFavourite(AddBookTOFavouireRequest req);
     }
 }

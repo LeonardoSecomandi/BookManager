@@ -144,5 +144,17 @@ namespace BookManager.API.Models.Repositories
             await _context.SaveChangesAsync();
             return Result.Entity;
         }
+
+        public async Task<bool> RemoveFromFavourite(AddBookTOFavouireRequest req)
+        {
+            var BookSaved = await _context.SavedBooks.FirstOrDefaultAsync(x => x.SavedBookId == req.BookId && x.UserId == req.UserId);
+            if (BookSaved != null)
+            {
+                _context.Remove(BookSaved);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
     }
 }

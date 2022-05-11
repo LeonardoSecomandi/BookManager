@@ -89,5 +89,12 @@ namespace BookManager.API.Controllers
                     return null;
                 return Result;
         }
+
+        [HttpPost("remove")]
+        public async Task<bool> RemoveFromFavourite(AddBookTOFavouireRequest req)
+        {
+            var result = await _bookRepositoryService.RemoveFromFavourite(req);
+            return result;
+        }
     }
 }

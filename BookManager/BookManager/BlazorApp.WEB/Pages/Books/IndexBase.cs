@@ -20,6 +20,8 @@ namespace BlazorApp.WEB.Pages.Books
         public IEnumerable<ItemResponse> EleItem = new List<ItemResponse>();
 
         public IEnumerable<ItemResponse> SearchedItem = new List<ItemResponse>();
+       public bool NoSearchResult = true;
+        public bool StartSeach = false;
 
         protected string SearchedText { get; set; }
 
@@ -30,6 +32,7 @@ namespace BlazorApp.WEB.Pages.Books
              EleItem = await BookService.GetItems();
             EleItem.ToList().OrderBy(x => x.Book.RatingAverage);
             SearchedText = "";
+            StateHasChanged();
         }
 
         protected void ShowReviewClick(ItemResponse item)
@@ -43,6 +46,7 @@ namespace BlazorApp.WEB.Pages.Books
 
         protected async Task Search()
         {
+            StartSeach = true;
             SearchedItem = new List<ItemResponse>();
             if (string.IsNullOrEmpty(SearchedText))
             {
@@ -52,7 +56,13 @@ namespace BlazorApp.WEB.Pages.Books
                 
             SearchedItem = await BookService.Search(SearchedText);
             SearchedItem = SearchedItem.ToList().Distinct();
+            if (!SearchedItem.Any())
+                NoSearchResult = true;
+            if (SearchedItem.Any())
+                NoSearchResult = false;
+
             StateHasChanged();
+            StartSeach = false;
             return;
         }
     }

@@ -48,6 +48,7 @@ namespace BookManager.API.Controllers
         {
             await extract.ExtractBooksFromLink(Terms);
             var result = await _itemservice.Search(Terms);
+            result = await _itemservice.Search(Terms);
             return result;
         }
     }

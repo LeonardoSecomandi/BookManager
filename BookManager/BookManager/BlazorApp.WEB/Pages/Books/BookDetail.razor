@@ -1,70 +1,76 @@
 ﻿@page "/book/{itemid}/detail"
 @inherits BookDetailBase
 
+<AuthorizeView>
+    <Authorized>
 
-@if (Book.Book != null)
-{
-<div class="row">
-    <div class="card col-4" style="width: 28rem; text-align:center">
-        <img src="@Book.Book.ImageLink" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h3 class="card-title">@Book.Book.Titolo</h3>
-            @foreach (var author in Book.Book.Authors)
-            {
-                <h4>@author.AuthorName</h4>
-            }
-            <h5>@Book.Book.Description</h5>
-            <hr />
-            <h5>
-                <br />
-                Valutazioni:<br />
-                @Book.Book.RatingAverage
-                <br />
-                @Book.ItemReviewList.Count Recensioni
-            </h5>
-        </div>
-    </div>
-    <div class="card col-4">
-        <br />
-        <h3>Recensioni</h3>
-        <hr />
-        @foreach(var Review in Book.ItemReviewList)
+        @if (Book.Book != null)
         {
-           //<h1>@Usermanager.FindByIdAsync(Review.Rating.UserId).Result.UserName</h1>
-            <h6>@Review.ReviewPublishDate</h6><br />
-            <h4>@Review.ReviewStars</h4><br />
-            <h3>@Review.ReviewContent</h3>
+            <div class="row">
+                <div class="card col-4" style="width: 28rem; text-align:center">
+                    <img src="@Book.Book.ImageLink" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">@Book.Book.Titolo</h3>
+                        @foreach (var author in Book.Book.Authors)
+                        {
+                            <h4>@author.AuthorName</h4>
+                        }
+                        <h5>@Book.Book.Description</h5>
+                        <hr />
+                        <h5>
+                            <br />
+                            Valutazioni:<br />
+                            @Book.Book.RatingAverage
+                            <br />
+                            @Book.ItemReviewList.Count Recensioni
+                        </h5>
+                    </div>
+                </div>
+                <div class="card col-4">
+                    <br />
+                    <h3>Recensioni</h3>
+                    <hr />
+                    @foreach (var Review in Book.ItemReviewList)
+                    {
+                        //<h1>@Usermanager.FindByIdAsync(Review.Rating.UserId).Result.UserName</h1>
+                        <h6>@Review.ReviewPublishDate</h6><br />
+                        <h4>@Review.ReviewStars</h4><br />
+                        <h3>@Review.ReviewContent</h3>
 
-            <hr style="2px solid black" />
+                        <hr style="2px solid black" />
+                    }
+                </div>
+                <div class="card col-4">
+                    <h3>Lascia una recensione</h3>
+                    <hr>
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Numero Stelle</label>
+                            <select @bind="@ReviewStars" class="form-select" aria-label="Default select example">
+                                <option selected value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Commento</label>
+                            <textarea @bind="ReviewContent" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <button @onclick="PostReview" class="btn btn-primary">Invia</button>
+                    </form>
+                </div>
+            </div>
         }
-    </div>
-    <div class="card col-4">
-        <h3>Lascia una recensione</h3>
-        <hr>
-        <form>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Numero Stelle</label>
-                <select @bind="@ReviewStars" class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Commento</label>
-                <textarea @bind="ReviewContent" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <button @onclick="PostReview" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-</div>
-}
-
+    </Authorized>
+    <NotAuthorized>
+        <h2>Login Richiesto</h2>
+        <a href="/Identity/Account/Login">Loggati</a>
+    </NotAuthorized>
+</AuthorizeView>

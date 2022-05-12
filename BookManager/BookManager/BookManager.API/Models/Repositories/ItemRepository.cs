@@ -83,8 +83,8 @@ namespace BookManager.API.Models.Repositories
             var Match = await _context.Books.ToListAsync();
             Match = Match.Where(i => i.Titolo.Trim().ToLower().Contains(Terms.Trim().ToLower())).ToList();
 
-            var matchAutors = await _context.Authors.ToListAsync();
-            matchAutors = matchAutors.Where(x => x.AuthorName.Trim().ToLower().Contains(Terms.Trim().ToLower())).ToList();
+            //var matchAutors = await _context.Authors.ToListAsync();
+            //matchAutors = matchAutors.Where(x => x.AuthorName.Trim().ToLower().Contains(Terms.Trim().ToLower())).ToList();
 
 
             foreach(var item in Match)

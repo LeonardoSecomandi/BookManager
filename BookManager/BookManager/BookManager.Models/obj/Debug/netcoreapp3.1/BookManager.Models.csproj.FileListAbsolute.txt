@@ -35,3 +35,12 @@ C:\Users\secomandi.17131\Documents\GitHub\ManagerBook\BookManager\BookManager\Bo
 C:\Users\secomandi.17131\Documents\GitHub\ManagerBook\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.csproj.CoreCompileInputs.cache
 C:\Users\secomandi.17131\Documents\GitHub\ManagerBook\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.dll
 C:\Users\secomandi.17131\Documents\GitHub\ManagerBook\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.pdb
+C:\Users\secomandi.17131\Documents\BookManager\BookManager\BookManager\BookManager.Models\bin\Debug\netcoreapp3.1\BookManager.Models.deps.json
+C:\Users\secomandi.17131\Documents\BookManager\BookManager\BookManager\BookManager.Models\bin\Debug\netcoreapp3.1\BookManager.Models.dll
+C:\Users\secomandi.17131\Documents\BookManager\BookManager\BookManager\BookManager.Models\bin\Debug\netcoreapp3.1\BookManager.Models.pdb
+C:\Users\secomandi.17131\Documents\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.csprojAssemblyReference.cache
+C:\Users\secomandi.17131\Documents\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.AssemblyInfoInputs.cache
+C:\Users\secomandi.17131\Documents\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.AssemblyInfo.cs
+C:\Users\secomandi.17131\Documents\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.csproj.CoreCompileInputs.cache
+C:\Users\secomandi.17131\Documents\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.dll
+C:\Users\secomandi.17131\Documents\BookManager\BookManager\BookManager\BookManager.Models\obj\Debug\netcoreapp3.1\BookManager.Models.pdb

@@ -8,7 +8,7 @@
     <Authorized>
         <div style="text-align:center">
             <div class="input-group input-group-lg">
-                <input type="email" class="form-control" id="exampleFormControlInput1" @bind="SearchedText" placeholder="Titolo/Autore">
+                <input type="text" class="form-control" id="exampleFormControlInput1" @bind="SearchedText" placeholder="Titolo/Autore">
                 <button @onclick="Search" class="btn-primary">Cerca</button>
             </div>
 
@@ -16,16 +16,21 @@
         @if (SearchedItem.ToList().Any())
         {
             <h2>Risultati Ricerca:</h2><br />
-            
-                <div class="row row-cols-1 row-cols-md-2" style="margin-top: 6rem;">
-                    @foreach (var Item in SearchedItem)
-                    {
-                        <BlazorApp.WEB.Pages.Components.ItemCard Item="Item" ShowReview="()=>ShowReviewClick(Item)"></BlazorApp.WEB.Pages.Components.ItemCard>
-                    }
-                </div>
-            
-        }
 
+
+
+            <div class="row row-cols-1 row-cols-md-2" style="margin-top: 6rem;">
+                @foreach (var Item in SearchedItem)
+                {
+                    <BlazorApp.WEB.Pages.Components.ItemCard Item="Item" ShowReview="()=>ShowReviewClick(Item)"></BlazorApp.WEB.Pages.Components.ItemCard>
+                }
+            </div>
+
+        }
+        @if (NoSearchResult && !string.IsNullOrEmpty(SearchedText) && !StartSeach)
+        {
+            <h3>La ricerca non ha prodotto risultati</h3>
+        }
         @if (SearchedItem is null || string.IsNullOrEmpty(SearchedText))
         {
             <h2>Libri più recenti</h2>

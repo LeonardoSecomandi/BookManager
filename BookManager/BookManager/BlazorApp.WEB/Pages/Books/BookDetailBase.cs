@@ -4,6 +4,7 @@ using BookManager.WEB.Models.DTOS.Responses;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,9 @@ namespace BlazorApp.WEB.Pages.Books
         protected AuthenticationStateProvider _authenticationStateProvider { get; set; }
 
         [Inject]
+        protected NavigationManager nv { get; set; }
+
+        [Inject]
         protected UserManager<IdentityUser> Usermanager { get; set; }
 
         [Inject]
@@ -29,6 +33,9 @@ namespace BlazorApp.WEB.Pages.Books
 
         [Parameter]
         public string itemid { get; set; }
+
+        [Inject]
+        protected IJSRuntime JsRuntime { get; set; }
 
         protected ItemResponse Book = new ItemResponse();
 
@@ -59,6 +66,9 @@ namespace BlazorApp.WEB.Pages.Books
             };
 
             var Result = await _reviewService.AddReview(newReview);
+
+            await JsRuntime.InvokeVoidAsync("alert", "Libro Aggiunto ai preferiti");
+            StateHasChanged();
 
         }
 
